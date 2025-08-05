@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import TeamMembersTab from "./TeamMembersTab";
 import DepartmentsTab from "./DepartmentsTab";
+import LoginRegister from './LoginRegister'
 import SearchBar from "../SearchBar";
 
 const TeamManagement = () => {
   const [activeTab, setActiveTab] = useState("Team Members");
-  const tabs = ["Team Members", "Departments"];
+  const tabs = ["Team Members", "Departments","Login/Register"];
 
   return (
     <div className="px-4 py-6 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
@@ -77,6 +78,7 @@ const TeamManagement = () => {
       {/* Tab Content */}
       {activeTab === "Team Members" && <TeamMembersTab />}
       {activeTab === "Departments" && <DepartmentsTab />}
+      {activeTab === "Login/Register" && <LoginRegister/>}
     </div>
   );
 };

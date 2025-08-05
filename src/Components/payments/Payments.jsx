@@ -18,7 +18,7 @@ const Payments = () => {
           <h1 className="text-xl font-semibold text-gray-800">Payments & Transactions</h1>
         </div>
 
-        <div className="flex flex-wrap gap-2 sm:justify-end">
+        <div className="flex flex-wrap gap-2 sm:justify-end"> 
           <Button
             label="Export"
             bgColor="bg-white"
