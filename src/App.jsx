@@ -21,8 +21,7 @@ function App() {
         <Header />
         <div className="flex flex-1 pt-[64px]"> {/* padding-top for fixed header */}
           <Sidebar />
-
-          <main className="flex-1 w-full p-4 sm:ml-[220px]">
+          <main className="flex-1 w-full p-4 lg:ml-[220px]">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/leads" element={<Leads />} />

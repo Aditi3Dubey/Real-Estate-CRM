@@ -66,7 +66,7 @@ export default function TeamSettings() {
       </div>
  
       {/* Action Button */}
-      <div className="fixed bottom-4 right-4 sm:right-12 flex gap-2">
+      <div className="fixed bottom-4 right-12 flex gap-2">
         <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-2 rounded shadow">
           Save Team Settings
         </button>

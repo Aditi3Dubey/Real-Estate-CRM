@@ -35,21 +35,29 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Mobile Menu Toggle */}
+      {/* Toggle Button - visible on screens smaller than lg */}
       <button
         onClick={toggleSidebar}
-        className="sm:hidden fixed top-[72px] left-4 z-50 bg-white p-2 rounded-md shadow-md"
+        className="lg:hidden fixed top-[72px] left-4 z-50 bg-white p-2 rounded-md shadow-md"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
+      {/* Overlay Background */}
+      {isOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black bg-opacity-30 z-30"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
       <aside
-        className={`fixed top-[64px] left-0 h-[calc(100vh-64px)] w-[220px]
-          bg-white border-r z-40 flex flex-col justify-start
-          transition-transform duration-300 ease-in-out
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          sm:translate-x-0
+        className={`fixed top-[64px] left-0 h-[calc(100vh-64px)] w-[220px] 
+          bg-white border-r z-40 flex flex-col justify-start 
+          transform transition-transform duration-300 ease-in-out
+          ${isOpen ? "translate-x-0" : "-translate-x-full"} 
+          lg:translate-x-0
           overflow-y-auto overflow-x-hidden
         `}
       >
@@ -60,7 +68,7 @@ export default function Sidebar() {
               <Link
                 key={item.name}
                 to={item.path}
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsOpen(false)} // auto-close on navigation
                 className={`flex items-center gap-3 px-4 py-2 rounded-full font-medium transition-all duration-200
                   ${isActive ? "bg-orange-500 text-white" : "bg-white text-black hover:bg-gray-100"}
                 `}
