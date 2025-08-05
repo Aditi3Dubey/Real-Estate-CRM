@@ -17,8 +17,9 @@ import {
   Clock4,
   TriangleAlert,
 } from "lucide-react";
-import StatCard from "../dashboard/StatCard";
 import LeadSources from "../dashboard/LeadSources";
+import SummaryCard from "../SummaryCard";
+import SalesPie from "../SalesPie";
 
 const monthlyData = [
   { month: "Jan", sales: 50, leads: 10 },
@@ -43,55 +44,48 @@ const leadSources = [
   { name: "Property Portals", value: 10 },
 ];
 
-const propertySales = [
-  { name: "Residential", value: 60 },
-  { name: "Commercial", value: 20 },
-  { name: "Land", value: 15 },
-  { name: "Industries", value: 5 },
-];
 
-const COLORS1 = ["#00C49F", "#FFBB28", "#FF69B4", "#FF4C4C", "#8884d8"];
-const COLORS2 = ["#8884d8", "#FF9F43", "#82ca9d", "#00C49F"];
+
 
 const Overview = () => {
   return (
     <div className="space-y-6 mt-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 mt-6">
-        <StatCard
+        <SummaryCard
           title="Total Tasks"
           icon={ClipboardList}
           value="1924"
           change="+12.5%"
           color="green"
-          bgcolor="bg-green-50"
-          compare="from last week"
+          textColor="green"
+          period="from last week"
         />
-        <StatCard
+        <SummaryCard
           title="Pending"
           value="432"
           icon={Clock4}
-          change="+8.2%"
+          change="-8.2%"
           color="blue"
-          bgcolor="bg-green-50"
-          compare="from last week"
+          textColor="green"
+          period="from last week"
         />
-        <StatCard
+        <SummaryCard
           title="OverDue"
           value="94"
-          change="-3.1%"
+          change="+3.1%"
           icon={TriangleAlert}
           color="purple"
-          bgcolor="bg-purple-100"
-          compare="from last month"
+          textColor="red"
+          period="from last month"
         />
-        <StatCard
+        <SummaryCard
           title="Completed"
           value="36"
           icon={CircleCheck}
           change="+18.9%"
-          color="rose"
-          bgcolor="bg-rose-50"
-          compare="from last week"
+          color="pink"
+          textColor="green"
+          period="from last week"
         />
       </div>
       {/* Monthly Performance */}
@@ -139,38 +133,7 @@ const Overview = () => {
           <h3 className="text-md font-bold text-black">
             Sales by Property Type
           </h3>
-          <div className="bg-white p-4 rounded-lg shadow duration-300 h-[350px]">
-            <ResponsiveContainer width="100%" height="85%">
-              <PieChart>
-                <Pie
-                  data={propertySales}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={100}
-                  dataKey="value"
-                  label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
-                  isAnimationActive={true}
-                >
-                  {propertySales.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS2[index % COLORS2.length]}
-                      style={{ transition: "all 0.3s ease" }}
-                      onMouseOver={(e) => (e.target.style.opacity = 0.8)}
-                      onMouseOut={(e) => (e.target.style.opacity = 1)}
-                    />
-                  ))}
-                </Pie>
-                <Tooltip />
-                <Legend
-                  verticalAlign="middle"
-                  align="right"
-                  layout="vertical"
-                />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
+         <SalesPie/>
         </div>
       </div>
     </div>

@@ -3,13 +3,15 @@ import Overview from "../Components/analytics/Overview";
 import LeadAnalytics from "../Components/analytics/LeadAnalytics";
 import SalesAnalytics from "../Components/analytics/SalesAnalytics";
 import PropertyAnalytic from "../Components/analytics/PropertyAnalytic";
+import SegmentedTabs from "../Components/SegmentedTabs";
 
 import { ArrowLeft } from "lucide-react";
 import SearchBar from "../Components/Searchbar";
 
 const Analytics = () => {
   const [activeTab, setActiveTab] = useState("Overview");
-  const [filter, setFilter] = useState("Year");
+  const [range, setRange] = useState("year");
+  
 
   const tabs = [
     "Overview",
@@ -26,21 +28,16 @@ const Analytics = () => {
           <h1 className="text-xl font-semibold">Analytics and Insights</h1>
         </div>
         <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
-          <div className="flex border border-gray-300 rounded-md overflow-hidden text-sm bg-white text-gray-700 w-full sm:w-auto">
-            {["Week", "Month", "Quater", "Year"].map((status) => (
-              <button
-                key={status}
-                onClick={() => setFilter(status)}
-                className={`flex-1 px-4 py-2 transition-colors ${
-                  filter === status
-                    ? "bg-black text-white"
-                    : "hover:bg-black hover:text-white"
-                }`}
-              >
-                {status}
-              </button>
-            ))}
-          </div>
+         <SegmentedTabs
+                     options={[
+                       { label: "Week", value: "week" },
+                       { label: "Month", value: "month" },
+                       { label: "Quarter", value: "quarter" },
+                       { label: "Year", value: "year" },
+                     ]}
+                     active={range}
+                     onChange={setRange}
+                   />
 
           <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 w-full sm:w-auto">
             Export

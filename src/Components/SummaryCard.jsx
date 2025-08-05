@@ -1,7 +1,16 @@
 import React from "react";
 import { TrendingUp, TrendingDown } from "lucide-react";
 
-const SummaryCard = ({ title, value, change, color, textColor, iconColor, icon: Icon , period }) => {
+const SummaryCard = ({
+  title,
+  value,
+  change,
+  color,
+  textColor,
+  iconColor,
+  icon: Icon,
+  period,
+}) => {
   const isPositive = !change?.includes("-");
 
   const bgColors = {
@@ -27,16 +36,31 @@ const SummaryCard = ({ title, value, change, color, textColor, iconColor, icon: 
   };
 
   return (
-    <div className={`flex items-start gap-3 p-4 rounded-xl border shadow-sm ${bgColors[color]} w-full`}>
-      <div className={`p-2 rounded-full ${iconColors[iconColor]} flex items-center justify-center`}>
-        {Icon ? <Icon className="w-4 h-4" /> : (isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />)}
+    <div
+      className={`flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 p-4 rounded-xl border shadow-sm ${bgColors[color]} w-full`}
+    >
+      <div
+        className={`p-2 rounded-full ${iconColors[iconColor]} flex items-center justify-center self-start sm:self-auto`}
+      >
+        {Icon ? (
+          <Icon className="w-5 h-5 sm:w-4 sm:h-4" />
+        ) : isPositive ? (
+          <TrendingUp className="w-5 h-5 sm:w-4 sm:h-4" />
+        ) : (
+          <TrendingDown className="w-5 h-5 sm:w-4 sm:h-4" />
+        )}
       </div>
-      <div>
-        <p className="text-sm text-gray-700">{title}</p>
-        <h2 className="text-lg font-semibold">{value}</h2>
+
+      <div className="flex flex-col w-full">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-gray-700">{title}</p>
+          <h2 className="text-lg font-semibold">{value}</h2>
+        </div>
+
         {change && (
           <p className="text-sm mt-1 font-medium">
-            <span className={`${textColors[textColor]}`}>{change}</span> {period ? `${period}` : ""}
+            <span className={`${textColors[textColor]}`}>{change}</span>{" "}
+            {period ? `${period}` : ""}
           </p>
         )}
       </div>

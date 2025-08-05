@@ -59,4 +59,4 @@ export default function MarketingTab() {
       <ScheduledReports reports={scheduledReports} />
       </div>
   )}
-  
+    

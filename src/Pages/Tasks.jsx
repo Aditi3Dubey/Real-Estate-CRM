@@ -12,10 +12,11 @@ import {
   Pencil,
   Check,
   Trash2,
+  Wallet,
 } from "lucide-react";
 import TableFooter from "../Components/TableFooter";
-import StatCard from "../Components/Dashboard/StatCard";
 import SearchBar from "../Components/Searchbar";
+import SummaryCard from "../Components/SummaryCard";
 import AddTaskModal from "../Components/AddTaskModal";
 
 const tasks = [
@@ -169,44 +170,47 @@ const Tasks = () => {
           </button>
         </div>
       </div>
-
-      {/* Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <StatCard
+      {/* SummaryCards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <SummaryCard
           title="Total Tasks"
-          icon={ClipboardList}
-          value="1924"
-          change="+12.5%"
-          color="green"
-          bgcolor="bg-green-50"
-          compare="from last week"
-        />
-        <StatCard
-          title="Pending"
-          value="432"
-          icon={Clock4}
-          change="+8.2%"
+          value="28"
+          icon={Wallet}
+          iconColor="green"
+          change="+5.3%"
+          period="from last Week"
           color="blue"
-          bgcolor="bg-green-50"
-          compare="from last week"
+          textColor="green"
         />
-        <StatCard
-          title="OverDue"
-          value="94"
-          change="-3.1%"
+        <SummaryCard
+          title="Pending "
+          value="14"
+          icon={Clock4}
+          iconColor="green"
+          change="-8.2%"
+          period="from last Week"
+          color="blue"
+          textColor="green"
+        />
+        <SummaryCard
+          title="Overdue "
+          value="3"
           icon={TriangleAlert}
+          iconColor="red"
+          change="+2%"
+          period=" from last month"
           color="purple"
-          bgcolor="bg-purple-100"
-          compare="from last month"
+          textColor="red"
         />
-        <StatCard
+        <SummaryCard
           title="Completed"
-          value="36"
+          value="11"
           icon={CircleCheck}
-          change="+18.9%"
-          color="rose"
-          bgcolor="bg-rose-50"
-          compare="from last week"
+          iconColor="green"
+          change="+4"
+          period="from last Week"
+          color="pink"
+          textColor="green"
         />
       </div>
 

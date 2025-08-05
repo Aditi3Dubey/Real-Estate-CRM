@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import {
   ArrowLeft,
-  ClipboardList,
-  Clock4,
-  TriangleAlert,
-  CircleCheck,
+  TrendingDown,
+  TrendingUp,
   MapPin,
   Bed,
   Bath,
@@ -13,14 +11,13 @@ import {
   House,
   Tag,
   Key,
-  TrendingUp,
   Ruler,
   Car,
   CarFront,
   CarFrontIcon,
 } from "lucide-react";
-import StatCard from "../Components/Dashboard/StatCard";
 import SearchBar from "../Components/Searchbar";
+import SummaryCard from "../Components/SummaryCard";
 
 const propertyData = [
   {
@@ -223,52 +220,56 @@ const Properties = () => {
         </div>
       </div>
 
-      {/* Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <StatCard
+      {/* SummaryCards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <SummaryCard
           title="Total Properties"
-          icon={House}
-          value="1924"
-          change="+12.5%"
-          color="green"
-          bgcolor="bg-green-50"
-          compare="from last week"
-        />
-        <StatCard
-          title="For Sale"
-          value="432"
-          icon={Tag}
-          change="+8.2%"
-          color="blue"
-          bgcolor="bg-green-50"
-          compare="from last week"
-        />
-        <StatCard
-          title="For Rent"
-          value="94"
-          change="-3.1%"
-          icon={Key}
-          color="purple"
-          bgcolor="bg-purple-100"
-          compare="from last month"
-        />
-        <StatCard
-          title="Conversion Rate"
-          value="36"
+          value="86"
           icon={TrendingUp}
-          change="+18.9%"
-          color="rose"
-          bgcolor="bg-rose-50"
-          compare="from last week"
+          iconColor="green"
+          change="+5.3%"
+          period="from last month"
+          color="blue"
+          textColor="green"
+        />
+        <SummaryCard
+          title="For Sale"
+          value="54"
+          icon={TrendingUp}
+          iconColor="green"
+          change="+7.8%"
+          period="from last month"
+          color="blue"
+          textColor="green"
+        />
+        <SummaryCard
+          title="For Rent"
+          value="32"
+          icon={TrendingDown}
+          iconColor="red"
+          change="-2.4%"
+          period="from last month"
+          color="purple"
+          textColor="red"
+        />
+        <SummaryCard
+          title="Conventional Rate"
+          value="-8.1%"
+          icon={TrendingUp}
+          iconColor="green"
+          change="18.9%"
+          period="from last month"
+          color="pink"
+          textColor="green"
         />
       </div>
 
       {/* Property Cards Grid/List */}
       <div
-        className={`${
+        className={`${ "mt-4" } ${  
           viewMode === "grid"
             ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-            : "flex flex-col gap-4"
+            : "flex flex-col gap-4 "
         }`}
       >
         {propertyData.map((item) => (

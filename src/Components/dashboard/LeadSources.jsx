@@ -8,7 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-
+ 
 const leadSources = [
   { name: "Referrals", value: 25, color: "#7c3aed" },
   { name: "Facebook", value: 15, color: "#f97316" },
@@ -16,41 +16,63 @@ const leadSources = [
   { name: "Google ads", value: 18, color: "#06b6d4" },
   { name: "Proterty Portals", value: 10, color: "#0284c7 " },
 ];
-
+ 
 const LeadSources = ({ type = "bar" }) => (
-  <div className="bg-white p-4 sm:p-6 rounded-xl shadow min-h-[350px] w-full">
+  <div className="bg-white p-4 sm:p-6  shadow min-h-[350px] w-full">
     {/* Pie Chart Only */}
     {type === "pie" && (
-      <div className=" p-4 rounded-lg  flex-1 h-[300px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie
-              data={leadSources}
-              cx="50%"
-              cy="50%"
-              innerRadius={60}
-              outerRadius={100}
-              dataKey="value"
-              label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
-              isAnimationActive={true}
-            >
-              {leadSources.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={entry.color}
-                  style={{ transition: "all 0.3s ease" }}
-                  onMouseOver={(e) => (e.target.style.opacity = 0.8)}
-                  onMouseOut={(e) => (e.target.style.opacity = 1)}
-                />
+      <div className="p-4 rounded-lg flex-1">
+        <div className="flex flex-col md:flex-row items-center md:items-start">
+          {/* Chart */}
+          <div className="w-full md:w-2/3 h-[250px] md:h-[280px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={leadSources}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={50}
+                  outerRadius={90}
+                  dataKey="value"
+                  label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+                  isAnimationActive={true}
+                >
+                  {leadSources.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={entry.color}
+                      style={{ transition: "all 0.3s ease" }}
+                      onMouseOver={(e) => (e.target.style.opacity = 0.8)}
+                      onMouseOut={(e) => (e.target.style.opacity = 1)}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+ 
+          {/* Legend */}
+          <div className="w-full md:w-1/3 mt-4 md:mt-0 md:ml-4">
+            <ul className="flex flex-wrap md:flex-col justify-center gap-3 md:gap-2">
+              {leadSources.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex items-center gap-2 text-sm text-gray-700"
+                >
+                  <span
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: item.color }}
+                  ></span>
+                  {item.name}
+                </li>
               ))}
-            </Pie>
-            <Tooltip />
-            <Legend verticalAlign="middle" align="right" layout="vertical" />
-          </PieChart>
-        </ResponsiveContainer>
+            </ul>
+          </div>
+        </div>
       </div>
     )}
-
+ 
     {/* Summary + Progress Bar */}
     {type === "bar" && (
       <>
@@ -74,16 +96,54 @@ const LeadSources = ({ type = "bar" }) => (
                 </div>
               ))}
             </div>
-
+ 
             {/* Image */}
-            <img
-              src="leadsrc.png"
-              alt="icon"
-              className="w-32 h-32 object-contain"
-            />
+            {/* Pie Chart Only */}
+            {/* <div className="w-32 h-32 mx-auto md:mx-0">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={leadSources}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={20}
+                    outerRadius={40}
+                    dataKey="value"
+                    isAnimationActive={false}
+                  >
+                    {leadSources.map((entry, index) => (
+                      <Cell key={`cell-mini-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </div> */}
+            {/* Mini Pie Chart Section */}
+            <div className="text-center md:text-left">
+              <div className="w-32 h-32 mx-auto md:mx-0">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={leadSources}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={35}
+                      outerRadius={65}
+                      dataKey="value"
+                      isAnimationActive={false}
+                    >
+                      {leadSources.map((entry, index) => (
+                        <Cell key={`cell-mini-${index}`} fill={entry.color} />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
           </div>
         </div>
-
+ 
         <div className="space-y-6 mt-10">
           {leadSources.map((src) => (
             <div key={src.name}>
@@ -107,5 +167,9 @@ const LeadSources = ({ type = "bar" }) => (
     )}
   </div>
 );
-
+ 
 export default LeadSources;
+ 
+ 
+ 
+ 
