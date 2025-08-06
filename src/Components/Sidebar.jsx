@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
+// Navigation items with icons and paths
 const navItems = [
   { name: "Dashboard", path: "/", icon: <LayoutDashboard size={20} /> },
   { name: "Leads", path: "/leads", icon: <Users size={20} /> },
@@ -28,14 +29,14 @@ const navItems = [
 ];
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false); // For mobile toggle
+  const location = useLocation(); // Current route path
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   return (
     <>
-      {/* Toggle Button - visible on screens smaller than lg */}
+      {/* Toggle Button - only on small screens */}
       <button
         onClick={toggleSidebar}
         className="lg:hidden fixed top-[72px] left-4 z-50 bg-white p-2 rounded-md shadow-md"
@@ -43,7 +44,7 @@ export default function Sidebar() {
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Overlay Background */}
+      {/* Overlay for sidebar click away close */}
       {isOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-black bg-opacity-30 z-30"
@@ -51,7 +52,7 @@ export default function Sidebar() {
         />
       )}
 
-      {/* Sidebar */}
+      {/* Sidebar layout */}
       <aside
         className={`fixed top-[64px] left-0 h-[calc(100vh-64px)] w-[220px] 
           bg-white border-r z-40 flex flex-col justify-start 
@@ -68,7 +69,7 @@ export default function Sidebar() {
               <Link
                 key={item.name}
                 to={item.path}
-                onClick={() => setIsOpen(false)} // auto-close on navigation
+                onClick={() => setIsOpen(false)} // auto-close on mobile nav
                 className={`flex items-center gap-3 px-4 py-2 rounded-full font-medium transition-all duration-200
                   ${isActive ? "bg-orange-500 text-white" : "bg-white text-black hover:bg-gray-100"}
                 `}
