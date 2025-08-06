@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, FileDown } from "lucide-react";
 import TransactionsTab from "./TransactionsTab";
 import InvoicesTab from "./InvoicesTab";
 import PaymentMethodTab from "./PaymentMethodTab";
@@ -15,16 +15,28 @@ const Payments = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div className="flex items-center gap-2">
           <ArrowLeft className="h-5 w-5 text-gray-500" />
-          <h1 className="text-xl font-semibold text-gray-800">Payments & Transactions</h1>
+          <h1 className="text-xl font-semibold text-gray-800">
+            Payments & Transactions
+          </h1>
         </div>
 
-        <div className="flex flex-wrap gap-2 sm:justify-end"> 
-          <Button
-            label="Export"
-            bgColor="bg-white"
-            textColor="black"
-            borderColor="border-gray-300"
-          />
+        <div className="flex flex-wrap gap-2 sm:justify-end">
+          {/* Mobile view: Icon only */}
+          <button className="sm:hidden p-2 border border-gray-300 bg-white rounded">
+            <FileDown className="w-5 h-5 text-black" />
+          </button>
+
+          {/* Desktop view: Full Export button (hidden on mobile) */}
+          <div className="hidden sm:block">
+            <Button
+              label="Export"
+              bgColor="bg-white"
+              textColor="black"
+              borderColor="border-gray-300"
+            />
+          </div>
+
+          {/* Always visible button */}
           <Button
             label="New Transaction"
             bgColor="bg-orange-500"
