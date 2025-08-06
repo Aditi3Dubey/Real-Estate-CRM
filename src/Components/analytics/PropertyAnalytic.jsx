@@ -68,48 +68,56 @@ const data = Array.from({ length: 30 }, (_, i) => ({
 const PropertyAnalytic = () => {
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <SummaryCard
-          title="Total Leads"
-          value="1924"
-          icon={TrendingUp}
-          iconColor="green"
-          change="12.5%"
-          period="vs last month"
-          color="blue"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Property Visits"
-          value="432"
-          icon={TrendingUp}
-          iconColor="green"
-          change="8.2%"
-          period="vs last month"
-          color="blue"
-          bgcolor="bg-purple-100"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Active Listings"
-          value="94"
-          icon={TrendingDown}
-          iconColor="red"
-          change="3.1%"
-          period="vs last month"
-          color="purple"
-          textColor="red"
-        />
-        <SummaryCard
-          title="Active Listings"
-          value="94"
-          icon={TrendingDown}
-          iconColor="red"
-          change="3.1%"
-          period="vs last month"
-          color="purple"
-          textColor="red"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Leads"
+            value="1924"
+            icon={TrendingUp}
+            iconColor="green"
+            change="12.5%"
+            period="vs last month"
+            color="blue"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Property Visits"
+            value="432"
+            icon={TrendingUp}
+            iconColor="green"
+            change="8.2%"
+            period="vs last month"
+            color="blue"
+            bgcolor="bg-purple-100"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Active Listings"
+            value="94"
+            icon={TrendingDown}
+            iconColor="red"
+            change="3.1%"
+            period="vs last month"
+            color="purple"
+            textColor="red"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Active Listings"
+            value="94"
+            icon={TrendingDown}
+            iconColor="red"
+            change="3.1%"
+            period="vs last month"
+            color="purple"
+            textColor="red"
+          />
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
         {/* Property Type Distribution */}

@@ -286,47 +286,55 @@ const Properties = () => {
       </div>
 
       {/* SummaryCards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <SummaryCard
-          title="Total Properties"
-          value="86"
-          icon={TrendingUp}
-          iconColor="green"
-          change="+5.3%"
-          period="from last month"
-          color="blue"
-          textColor="green"
-        />
-        <SummaryCard
-          title="For Sale"
-          value="54"
-          icon={TrendingUp}
-          iconColor="green"
-          change="+7.8%"
-          period="from last month"
-          color="blue"
-          textColor="green"
-        />
-        <SummaryCard
-          title="For Rent"
-          value="32"
-          icon={TrendingDown}
-          iconColor="red"
-          change="-2.4%"
-          period="from last month"
-          color="purple"
-          textColor="red"
-        />
-        <SummaryCard
-          title="Conventional Rate"
-          value="-8.1%"
-          icon={TrendingUp}
-          iconColor="green"
-          change="18.9%"
-          period="from last month"
-          color="pink"
-          textColor="green"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Properties"
+            value="86"
+            icon={TrendingUp}
+            iconColor="green"
+            change="+5.3%"
+            period="from last month"
+            color="blue"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="For Sale"
+            value="54"
+            icon={TrendingUp}
+            iconColor="green"
+            change="+7.8%"
+            period="from last month"
+            color="blue"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="For Rent"
+            value="32"
+            icon={TrendingDown}
+            iconColor="red"
+            change="-2.4%"
+            period="from last month"
+            color="purple"
+            textColor="red"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Conventional Rate"
+            value="-8.1%"
+            icon={TrendingUp}
+            iconColor="green"
+            change="18.9%"
+            period="from last month"
+            color="pink"
+            textColor="green"
+          />
+        </div>
       </div>
 
       <div

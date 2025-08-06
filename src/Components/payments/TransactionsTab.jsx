@@ -109,25 +109,31 @@ const TransactionsTab = () => {
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-        <SummaryCard
-          title="Total Transaction"
-          value="₹50,000"
-          icon={File}
-          color="blue"
-        />
-        <SummaryCard
-          title="Pending"
-          value="₹20,000"
-          icon={Clock}
-          color="blue"
-        />
-        <SummaryCard
-          title="Failed"
-          value="₹1,000"
-          icon={AlertCircle}
-          color="purple"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Transaction"
+            value="₹50,000"
+            icon={File}
+            color="blue"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Pending"
+            value="₹20,000"
+            icon={Clock}
+            color="blue"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Failed"
+            value="₹1,000"
+            icon={AlertCircle}
+            color="purple"
+          />
+        </div>
       </div>
 
       {/* Table */}

@@ -44,49 +44,55 @@ const leadSources = [
   { name: "Property Portals", value: 10 },
 ];
 
-
-
-
 const Overview = () => {
   return (
     <div className="space-y-6 mt-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 mt-6">
-        <SummaryCard
-          title="Total Tasks"
-          icon={ClipboardList}
-          value="1924"
-          change="+12.5%"
-          color="green"
-          textColor="green"
-          period="from last week"
-        />
-        <SummaryCard
-          title="Pending"
-          value="432"
-          icon={Clock4}
-          change="-8.2%"
-          color="blue"
-          textColor="green"
-          period="from last week"
-        />
-        <SummaryCard
-          title="OverDue"
-          value="94"
-          change="+3.1%"
-          icon={TriangleAlert}
-          color="purple"
-          textColor="red"
-          period="from last month"
-        />
-        <SummaryCard
-          title="Completed"
-          value="36"
-          icon={CircleCheck}
-          change="+18.9%"
-          color="pink"
-          textColor="green"
-          period="from last week"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Tasks"
+            icon={ClipboardList}
+            value="1924"
+            change="+12.5%"
+            color="green"
+            textColor="green"
+            period="from last week"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Pending"
+            value="432"
+            icon={Clock4}
+            change="-8.2%"
+            color="blue"
+            textColor="green"
+            period="from last week"
+          />
+        </div>
+
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="OverDue"
+            value="94"
+            change="+3.1%"
+            icon={TriangleAlert}
+            color="purple"
+            textColor="red"
+            period="from last month"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Completed"
+            value="36"
+            icon={CircleCheck}
+            change="+18.9%"
+            color="pink"
+            textColor="green"
+            period="from last week"
+          />
+        </div>
       </div>
       {/* Monthly Performance */}
       <div className="bg-white p-4 rounded-lg shadow">
@@ -133,7 +139,7 @@ const Overview = () => {
           <h3 className="text-md font-bold text-black">
             Sales by Property Type
           </h3>
-         <SalesPie/>
+          <SalesPie />
         </div>
       </div>
     </div>

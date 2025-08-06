@@ -1,6 +1,6 @@
 // pages/Dashboard.jsx
 import React from "react";
-import { TrendingDown,TrendingUp } from "lucide-react";
+import { TrendingDown, TrendingUp } from "lucide-react";
 import SummaryCard from "../Components/SummaryCard";
 import LeadChart from "../Components/dashboard/LeadChart";
 import LeadSources from "../Components/dashboard/LeadSources";
@@ -16,11 +16,55 @@ const Dashboard = () => {
     <div className="flex bg-gray-50 justify-end min-h-screen p-4 sm:p-6 w-full">
       <div className="w-full space-y-6">
         {/* SummaryCards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <SummaryCard title="Total Leads" value="1924"  icon={TrendingUp} iconColor="green" change="12.5%" period="vs last month" color="blue" textColor="green"/>
-          <SummaryCard title="Property Visits" value="432" icon={TrendingUp} iconColor="green"  change="8.2%" period="vs last month" color="blue" textColor="green"/>
-          <SummaryCard title="Active Listings" value="94" icon={TrendingDown} iconColor="red" change="3.1%" period="vs last month" color="purple" textColor="red"/>
-          <SummaryCard title="Closed Deals" value="36" icon={TrendingUp} iconColor="green" change="18.9%" period="vs last month" color="pink" textColor="green"/>
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6 min-w-[250px] sm:min-w-0">
+          <div className="min-w-[250px] sm:min-w-0">
+            <SummaryCard
+              title="Total Leads"
+              value="1924"
+              icon={TrendingUp}
+              iconColor="green"
+              change="12.5%"
+              period="vs last month"
+              color="blue"
+              textColor="green"
+            />
+          </div>
+          <div className="min-w-[250px] sm:min-w-0">
+            <SummaryCard
+              title="Property Visits"
+              value="432"
+              icon={TrendingUp}
+              iconColor="green"
+              change="8.2%"
+              period="vs last month"
+              color="blue"
+              textColor="green"
+            />
+          </div>
+          <div className="min-w-[250px] sm:min-w-0">
+            <SummaryCard
+              title="Active Listings"
+              value="94"
+              icon={TrendingDown}
+              iconColor="red"
+              change="3.1%"
+              period="vs last month"
+              color="purple"
+              textColor="red"
+            />
+          </div>
+          <div className="min-w-[250px] sm:min-w-0">
+            <SummaryCard
+              title="Active Listings"
+              value="94"
+              icon={TrendingDown}
+              iconColor="red"
+              change="3.1%"
+              period="vs last month"
+              color="purple"
+              textColor="red"
+            />
+          </div>
         </div>
 
         {/* Charts and Sources */}

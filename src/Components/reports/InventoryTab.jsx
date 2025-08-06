@@ -53,13 +53,12 @@ const scheduledReports = [
   },
 ];
 
-
 const InventoryTab = () => {
   return (
     <div>
-
-   <div className="flex flex-col lg:flex-row gap-6 p-4 sm:p-6 lg:p-6 bg-white shadow-sm">
-    <SummaryCard
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
             title="Active Listing"
             value="86"
             change="+18.5%"
@@ -68,7 +67,10 @@ const InventoryTab = () => {
             iconColor="white"
             textColor="green"
             period="vs last Month"
-          /><SummaryCard
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
             title="Avg. Time on Market"
             value="34 Days"
             change="+12.2%"
@@ -77,7 +79,10 @@ const InventoryTab = () => {
             iconColor="green"
             textColor="green"
             period="vs last Month"
-          /><SummaryCard
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
             title="Inventory Value"
             value="₹50,0000"
             change="+12.2%"
@@ -87,60 +92,67 @@ const InventoryTab = () => {
             textColor="green"
             period="vs last Month"
           />
-   </div>
+        </div>
+      </div>
 
-   <h1 className="text-lg font-semibold my-4">Inventory Age Analysis</h1>
- <div className="bg-white shadow-sm rounded-lg overflow-x-auto">
-  <table className="w-full min-w-[600px] text-sm text-left border-collapse">
-    <thead className="bg-gray-100 text-gray-700">
-      <tr>
-        <th className="p-3 font-semibold whitespace-nowrap">Days on Market</th>
-        <th className="p-3 font-semibold whitespace-nowrap">Number of Properties</th>
-        <th className="p-3 font-semibold whitespace-nowrap">Value</th>
-        <th className="p-3 font-semibold whitespace-nowrap">% of Total</th>
-      </tr>
-    </thead>
+      <h1 className="text-lg font-semibold my-4">Inventory Age Analysis</h1>
+      <div className="bg-white shadow-sm rounded-lg overflow-x-auto">
+        <table className="w-full min-w-[600px] text-sm text-left border-collapse">
+          <thead className="bg-gray-100 text-gray-700">
+            <tr>
+              <th className="p-3 font-semibold whitespace-nowrap">
+                Days on Market
+              </th>
+              <th className="p-3 font-semibold whitespace-nowrap">
+                Number of Properties
+              </th>
+              <th className="p-3 font-semibold whitespace-nowrap">Value</th>
+              <th className="p-3 font-semibold whitespace-nowrap">
+                % of Total
+              </th>
+            </tr>
+          </thead>
 
-    <tbody className="text-gray-700">
-      <tr className="border-t hover:bg-gray-50">
-        <td className="p-3 whitespace-nowrap">0–30 Days</td>
-        <td className="p-3 whitespace-nowrap">45</td>
-        <td className="p-3 whitespace-nowrap">₹20,00,000</td>
-        <td className="p-3 whitespace-nowrap">40%</td>
-      </tr>
-      <tr className="border-t hover:bg-gray-50">
-        <td className="p-3 whitespace-nowrap">31–60 Days</td>
-        <td className="p-3 whitespace-nowrap">25</td>
-        <td className="p-3 whitespace-nowrap">₹15,00,000</td>
-        <td className="p-3 whitespace-nowrap">30%</td>
-      </tr>
-      <tr className="border-t hover:bg-gray-50">
-        <td className="p-3 whitespace-nowrap">61–90 Days</td>
-        <td className="p-3 whitespace-nowrap">10</td>
-        <td className="p-3 whitespace-nowrap">₹10,00,000</td>
-        <td className="p-3 whitespace-nowrap">20%</td>
-      </tr>
-      <tr className="border-t hover:bg-gray-50">
-        <td className="p-3 whitespace-nowrap">91+ Days</td>
-        <td className="p-3 whitespace-nowrap">6</td>
-        <td className="p-3 whitespace-nowrap">₹5,00,000</td>
-        <td className="p-3 whitespace-nowrap">10%</td>
-      </tr>
-    </tbody>
+          <tbody className="text-gray-700">
+            <tr className="border-t hover:bg-gray-50">
+              <td className="p-3 whitespace-nowrap">0–30 Days</td>
+              <td className="p-3 whitespace-nowrap">45</td>
+              <td className="p-3 whitespace-nowrap">₹20,00,000</td>
+              <td className="p-3 whitespace-nowrap">40%</td>
+            </tr>
+            <tr className="border-t hover:bg-gray-50">
+              <td className="p-3 whitespace-nowrap">31–60 Days</td>
+              <td className="p-3 whitespace-nowrap">25</td>
+              <td className="p-3 whitespace-nowrap">₹15,00,000</td>
+              <td className="p-3 whitespace-nowrap">30%</td>
+            </tr>
+            <tr className="border-t hover:bg-gray-50">
+              <td className="p-3 whitespace-nowrap">61–90 Days</td>
+              <td className="p-3 whitespace-nowrap">10</td>
+              <td className="p-3 whitespace-nowrap">₹10,00,000</td>
+              <td className="p-3 whitespace-nowrap">20%</td>
+            </tr>
+            <tr className="border-t hover:bg-gray-50">
+              <td className="p-3 whitespace-nowrap">91+ Days</td>
+              <td className="p-3 whitespace-nowrap">6</td>
+              <td className="p-3 whitespace-nowrap">₹5,00,000</td>
+              <td className="p-3 whitespace-nowrap">10%</td>
+            </tr>
+          </tbody>
 
-    <tfoot className="border-t bg-gray-50 text-gray-900 font-semibold">
-      <tr>
-        <td className="p-3 whitespace-nowrap">Total</td>
-        <td className="p-3 whitespace-nowrap">86</td>
-        <td className="p-3 whitespace-nowrap">₹50,00,000</td>
-        <td className="p-3 whitespace-nowrap">100%</td>
-      </tr>
-    </tfoot>
-  </table>
-</div>
-<RecentReports reports={recentReports} />
-<ScheduledReports reports={scheduledReports} />
-</div>
+          <tfoot className="border-t bg-gray-50 text-gray-900 font-semibold">
+            <tr>
+              <td className="p-3 whitespace-nowrap">Total</td>
+              <td className="p-3 whitespace-nowrap">86</td>
+              <td className="p-3 whitespace-nowrap">₹50,00,000</td>
+              <td className="p-3 whitespace-nowrap">100%</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <RecentReports reports={recentReports} />
+      <ScheduledReports reports={scheduledReports} />
+    </div>
   );
 };
 

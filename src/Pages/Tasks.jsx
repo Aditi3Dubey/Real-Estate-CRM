@@ -171,47 +171,55 @@ const Tasks = () => {
         </div>
       </div>
       {/* SummaryCards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <SummaryCard
-          title="Total Tasks"
-          value="28"
-          icon={Wallet}
-          iconColor="green"
-          change="+5.3%"
-          period="from last Week"
-          color="blue"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Pending "
-          value="14"
-          icon={Clock4}
-          iconColor="green"
-          change="-8.2%"
-          period="from last Week"
-          color="blue"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Overdue "
-          value="3"
-          icon={TriangleAlert}
-          iconColor="red"
-          change="+2%"
-          period=" from last month"
-          color="purple"
-          textColor="red"
-        />
-        <SummaryCard
-          title="Completed"
-          value="11"
-          icon={CircleCheck}
-          iconColor="green"
-          change="+4"
-          period="from last Week"
-          color="pink"
-          textColor="green"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Tasks"
+            value="28"
+            icon={Wallet}
+            iconColor="green"
+            change="+5.3%"
+            period="from last Week"
+            color="blue"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Pending "
+            value="14"
+            icon={Clock4}
+            iconColor="green"
+            change="-8.2%"
+            period="from last Week"
+            color="blue"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Overdue "
+            value="3"
+            icon={TriangleAlert}
+            iconColor="red"
+            change="+2%"
+            period=" from last month"
+            color="purple"
+            textColor="red"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Completed"
+            value="11"
+            icon={CircleCheck}
+            iconColor="green"
+            change="+4"
+            period="from last Week"
+            color="pink"
+            textColor="green"
+          />
+        </div>
       </div>
 
       {/* Responsive Table */}

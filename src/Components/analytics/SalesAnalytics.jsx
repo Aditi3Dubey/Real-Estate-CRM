@@ -50,37 +50,43 @@ const SalesAnalytics = () => {
   return (
     <div className="space-y-6 mt-6">
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <SummaryCard
-          title="Total Leads"
-          value="1924"
-          icon={TrendingUp}
-          iconColor="green"
-          change="12.5%"
-          period="vs last month"
-          color="blue"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Property Visits"
-          value="432"
-          icon={TrendingUp}
-          iconColor="green"
-          change="8.2%"
-          period="vs last month"
-          color="blue"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Active Listings"
-          value="94"
-          icon={TrendingDown}
-          iconColor="red"
-          change="3.1%"
-          period="vs last month"
-          color="purple"
-          textColor="red"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Leads"
+            value="1924"
+            icon={TrendingUp}
+            iconColor="green"
+            change="12.5%"
+            period="vs last month"
+            color="blue"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Property Visits"
+            value="432"
+            icon={TrendingUp}
+            iconColor="green"
+            change="8.2%"
+            period="vs last month"
+            color="blue"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Active Listings"
+            value="94"
+            icon={TrendingDown}
+            iconColor="red"
+            change="3.1%"
+            period="vs last month"
+            color="purple"
+            textColor="red"
+          />
+        </div>
       </div>
 
       {/* Monthly Sales & Leads */}

@@ -35,40 +35,46 @@ const LeadAnalytics = () => {
   return (
     <div className="w-full px-2 sm:px-4">
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6 mt-6">
-        <SummaryCard
-          title="Total Leads"
-          icon={TrendingUp}
-          iconColor="green"
-          value="1352"
-          change="+5.3%"
-          textColor="green"
-          color="green"
-          bgcolor="bg-green-50"
-          period="from last week"
-        />
-        <SummaryCard
-          title="Conversion Rate"
-          value="18.4%"
-          icon={TrendingUp}
-          iconColor="green"
-          textColor="green"
-          change="2.3%"
-          color="blue"
-          bgcolor="bg-green-50"
-          period="from last week"
-        />
-        <SummaryCard
-          title="Avg Response Time"
-          value="3.2 hours"
-          change="0.5 hrs"
-          icon={TrendingUp}
-          iconColor="green"
-          textColor="green"
-          color="purple"
-          bgcolor="bg-purple-100"
-          period="vs last period"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Leads"
+            icon={TrendingUp}
+            iconColor="green"
+            value="1352"
+            change="+5.3%"
+            textColor="green"
+            color="green"
+            bgcolor="bg-green-50"
+            period="from last week"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Conversion Rate"
+            value="18.4%"
+            icon={TrendingUp}
+            iconColor="green"
+            textColor="green"
+            change="2.3%"
+            color="blue"
+            bgcolor="bg-green-50"
+            period="from last week"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Avg Response Time"
+            value="3.2 hours"
+            change="0.5 hrs"
+            icon={TrendingUp}
+            iconColor="green"
+            textColor="green"
+            color="purple"
+            bgcolor="bg-purple-100"
+            period="vs last period"
+          />
+        </div>
       </div>
 
       {/* Lead Sources & Funnel Chart */}

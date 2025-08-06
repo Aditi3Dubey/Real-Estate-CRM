@@ -87,42 +87,40 @@ export default function LeadsManagement() {
 
   return (
     <div className="px-4 py-6 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
-      <div className="w-full px-4 max-w-screen-xl mx-auto">
-        {/* Top Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-          {/* Left: Title */}
-          <div className="flex items-center gap-2 min-w-[150px]">
-            <ArrowLeft className="w-5 h-5 text-gray-500 cursor-pointer" />
-            <h1 className="text-lg sm:text-xl font-semibold">
-              Lead Management
-            </h1>
-          </div>
-
-          {/* Spacer (center blank area) */}
-          <div className="flex-1 hidden md:block" />
-
-          {/* Right: Search + Filter + Button */}
-          <div className="flex flex-wrap items-center justify-end gap-2 w-full sm:w-auto">
-            {/* Slightly smaller SearchBar */}
-            <div className="w-full sm:w-[200px]">
-              <SearchBar searchPlaceholder="Search Leads" />
-            </div>
-
-            <select className="px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 w-full sm:w-auto">
-              <option>Filter by Date Range</option>
-            </select>
-
-            <button
-              onClick={() => setShowAddModal(true)}
-              className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 text-sm w-full sm:w-auto"
-            >
-              Add Leads
-            </button>
-          </div>
+      {/* Top Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        {/* Left: Title */}
+        <div className="flex items-center gap-2 min-w-[150px]">
+          <ArrowLeft className="w-5 h-5 text-gray-500 cursor-pointer" />
+          <h1 className="text-lg sm:text-xl font-semibold">Lead Management</h1>
         </div>
 
-        {/* Summary Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+        {/* Spacer (center blank area) */}
+        <div className="flex-1 hidden md:block" />
+
+        {/* Right: Search + Filter + Button */}
+        <div className="flex flex-wrap items-center justify-end gap-2 w-full sm:w-auto">
+          {/* Slightly smaller SearchBar */}
+          <div className="w-full sm:w-[200px]">
+            <SearchBar searchPlaceholder="Search Leads" />
+          </div>
+
+          <select className="px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 w-full sm:w-auto">
+            <option>Filter by Date Range</option>
+          </select>
+
+          <button
+            onClick={() => setShowAddModal(true)}
+            className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 text-sm w-full sm:w-auto"
+          >
+            Add Leads
+          </button>
+        </div>
+      </div>
+
+      {/* Summary Cards */}
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6 min-w-[250px] sm:min-w-0">
+        <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="Total Leads"
             value="154"
@@ -130,34 +128,40 @@ export default function LeadsManagement() {
             color="green"
             textColor="green"
             iconColor="green"
-            period= "vs last month"
+            period="vs last month"
           />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="New Leads"
             value="32"
             change="+8.2%"
             color="blue"
-             textColor="green"
+            textColor="green"
             iconColor="green"
-            period= "vs last month"
+            period="vs last month"
           />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="Qualified Leads"
             value="94"
             change="+15.3%"
             color="purple"
-             textColor="green"
+            textColor="green"
             iconColor="green"
-            period= "from last month"
+            period="from last month"
           />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="Conversion Rate"
             value="24.7%"
             change="-2.1%"
             color="pink"
-             textColor="red"
+            textColor="red"
             iconColor="red"
-            period= "vs last month"
+            period="vs last month"
           />
         </div>
       </div>

@@ -97,7 +97,6 @@ const scheduledReports = [
   },
 ];
 
-
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -121,37 +120,43 @@ const FinancialTab = () => {
   return (
     <div className="space-y-10 px-4 md:px-6">
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <SummaryCard
-          title="Total Revenue"
-          value="₹7,00,000"
-          change="+15%"
-          color="blue"
-          icon={WalletCards}
-          period="vs last Year"
-          iconColor="white"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Total Expenses"
-          value="₹6,00,000"
-          change="-5%"
-          icon={TrendingUp}
-          color="blue"
-          iconColor="red"
-          period="vs last Year"
-          textColor="red"
-        />
-        <SummaryCard
-          title="Conversion Rate"
-          value="₹3,00,000"
-          color="purple"
-          change="+10%"
-          icon={TrendingDown}
-          iconColor="green"
-          period="vs last Year"
-          textColor="green"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Revenue"
+            value="₹7,00,000"
+            change="+15%"
+            color="blue"
+            icon={WalletCards}
+            period="vs last Year"
+            iconColor="white"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Expenses"
+            value="₹6,00,000"
+            change="-5%"
+            icon={TrendingUp}
+            color="blue"
+            iconColor="red"
+            period="vs last Year"
+            textColor="red"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Conversion Rate"
+            value="₹3,00,000"
+            color="purple"
+            change="+10%"
+            icon={TrendingDown}
+            iconColor="green"
+            period="vs last Year"
+            textColor="green"
+          />
+        </div>
       </div>
 
       {/* Financial Performance Line Chart */}
@@ -309,8 +314,6 @@ const FinancialTab = () => {
       </div>
       <RecentReports reports={recentReports} />
       <ScheduledReports reports={scheduledReports} />
-
-     
     </div>
   );
 };

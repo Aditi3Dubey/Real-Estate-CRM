@@ -88,48 +88,55 @@ const getStatusColor = (status) => {
 const TeamMembersTab = () => {
   return (
     <div className="overflow-x-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
-        {/* Summary Cards */}
-        <SummaryCard
-          title="Total Revenue"
-          value="₹7,00,000"
-          change="+15%"
-          color="blue"
-          icon={WalletCards}
-          period="vs last Year"
-          iconColor="white"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Total Revenue"
-          value="₹7,00,000"
-          change="+15%"
-          color="blue"
-          icon={WalletCards}
-          period="vs last Year"
-          iconColor="white"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Total Revenue"
-          value="₹7,00,000"
-          change="+15%"
-          color="blue"
-          icon={WalletCards}
-          period="vs last Year"
-          iconColor="white"
-          textColor="green"
-        />
-        <SummaryCard
-          title="Total Revenue"
-          value="₹7,00,000"
-          change="+15%"
-          color="blue"
-          icon={WalletCards}
-          period="vs last Year"
-          iconColor="white"
-          textColor="green"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Revenue"
+            value="₹7,00,000"
+            change="+15%"
+            color="blue"
+            icon={WalletCards}
+            period="vs last Year"
+            iconColor="white"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Revenue"
+            value="₹7,00,000"
+            change="+15%"
+            color="blue"
+            icon={WalletCards}
+            period="vs last Year"
+            iconColor="white"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Revenue"
+            value="₹7,00,000"
+            change="+15%"
+            color="blue"
+            icon={WalletCards}
+            period="vs last Year"
+            iconColor="white"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Revenue"
+            value="₹7,00,000"
+            change="+15%"
+            color="blue"
+            icon={WalletCards}
+            period="vs last Year"
+            iconColor="white"
+            textColor="green"
+          />
+        </div>
       </div>
       <table className="w-full min-w-[900px] text-sm text-left">
         <thead>

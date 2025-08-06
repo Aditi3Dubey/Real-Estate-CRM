@@ -1,6 +1,6 @@
 import React from "react";
 import SummaryCard from "../SummaryCard";
-import { TrendingUp, WalletCards,TrendingDown } from "lucide-react";
+import { TrendingUp, WalletCards, TrendingDown } from "lucide-react";
 import RecentReports from "./RecentReports";
 import ScheduledReports from "./ScheduledReports";
 import {
@@ -82,70 +82,86 @@ const PerformanceTab = () => {
   return (
     <div className="space-y-10 px-4 md:px-6">
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <SummaryCard
-          title="Total Revenue"
-          value="₹100,000"
-          change="+15%"
-          color="blue"
-          icon={WalletCards}
-          iconColor="white"
-          textColor="green"
-          period="vs last Period"
-        />
-        <SummaryCard
-          title="Listings"
-          value="235"
-          change="-5%"
-          icon={TrendingUp}
-          color="blue"
-          iconColor="green"
-          textColor="green"
-          period="vs last Period"
-        />
-        <SummaryCard
-          title="Avg. Sale Price"
-          value="₹50,000"
-          color="purple"
-          change="+10%"
-          icon={TrendingUp}
-          iconColor="green"
-          textColor="green"
-          period="vs last Period"
-        />
-        <SummaryCard
-          title="Days on Market"
-          value="₹50,000"
-          color="pink"
-          change="+10%"
-          icon={TrendingDown}
-          iconColor="red"
-          textColor="red"
-          period="vs last Period"
-        /><SummaryCard
-          title="Conversion Rate"
-          value="₹50,000"
-          period="vs last Period"
-          color="pink"
-          change="+10%"
-          icon={TrendingUp}
-          iconColor="green"
-          textColor="green"
-        /><SummaryCard
-          title="Customer Satisfaction"
-          value="₹50,000"
-          color="red"
-          change="+10%"
-          icon={TrendingUp}
-          iconColor="green"
-          textColor="green"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Revenue"
+            value="₹100,000"
+            change="+15%"
+            color="blue"
+            icon={WalletCards}
+            iconColor="white"
+            textColor="green"
+            period="vs last Period"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Listings"
+            value="235"
+            change="-5%"
+            icon={TrendingUp}
+            color="blue"
+            iconColor="green"
+            textColor="green"
+            period="vs last Period"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Avg. Sale Price"
+            value="₹50,000"
+            color="purple"
+            change="+10%"
+            icon={TrendingUp}
+            iconColor="green"
+            textColor="green"
+            period="vs last Period"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Days on Market"
+            value="₹50,000"
+            color="pink"
+            change="+10%"
+            icon={TrendingDown}
+            iconColor="red"
+            textColor="red"
+            period="vs last Period"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Conversion Rate"
+            value="₹50,000"
+            period="vs last Period"
+            color="pink"
+            change="+10%"
+            icon={TrendingUp}
+            iconColor="green"
+            textColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Customer Satisfaction"
+            value="₹50,000"
+            color="red"
+            change="+10%"
+            icon={TrendingUp}
+            iconColor="green"
+            textColor="green"
+          />
+        </div>
       </div>
 
       {/* Sales Funnel Performance */}
       <div className="grid md:grid-cols-2 gap-6 items-center">
         <div className="bg-pink-50 rounded-xl p-4 shadow-sm">
-          <h2 className="text-lg font-semibold mb-4">Sales Funnel Performance</h2>
+          <h2 className="text-lg font-semibold mb-4">
+            Sales Funnel Performance
+          </h2>
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={funnelData} barSize={50}>
               <XAxis dataKey="stage" axisLine={false} tickLine={false} />
@@ -160,11 +176,7 @@ const PerformanceTab = () => {
                   ) : null
                 }
               />
-              <Bar
-                dataKey="count"
-                radius={[10, 10, 0, 0]}
-                fill="#6366f1"
-              >
+              <Bar dataKey="count" radius={[10, 10, 0, 0]} fill="#6366f1">
                 {funnelData.map((_, idx) => (
                   <Cell key={idx} fill="#6366f1" />
                 ))}

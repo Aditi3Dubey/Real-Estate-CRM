@@ -44,43 +44,51 @@ export default function SiteVisits() {
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <SummaryCard
-          title="Total Visits"
-          value="154"
-          change="+12.5%"
-          color="green"
-          textColor="green"
-          period="from last month"
-          iconColor="green"
-        />
-        <SummaryCard
-          title="Scheduled"
-          value="94"
-          change="+15.3%"
-          color="purple"
-          textColor="green"
-          iconColor="green"
-          period="from last month"
-        />
-        <SummaryCard
-          title="Confirmed"
-          value="24.7%"
-          change="-2.1%"
-          color="red"
-          textColor="red"
-          period="from last month"
-          iconColor="red"
-        />
-        <SummaryCard
-          title="Cancelled"
-          value="32"
-          change="+8.2%"
-          color="blue"
-          textColor="green"
-          iconColor="green"
-          period="from last month"
-        />
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Visits"
+            value="154"
+            change="+12.5%"
+            color="green"
+            textColor="green"
+            period="from last month"
+            iconColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Scheduled"
+            value="94"
+            change="+15.3%"
+            color="purple"
+            textColor="green"
+            iconColor="green"
+            period="from last month"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Confirmed"
+            value="24.7%"
+            change="-2.1%"
+            color="red"
+            textColor="red"
+            period="from last month"
+            iconColor="red"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Cancelled"
+            value="32"
+            change="+8.2%"
+            color="blue"
+            textColor="green"
+            iconColor="green"
+            period="from last month"
+          />
+        </div>
       </div>
 
       {/* Table */}
