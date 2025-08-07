@@ -3,7 +3,12 @@ import { Listbox, Transition } from "@headlessui/react";
 
 const leadSources = ["Website", "Referral", "Google Ads", "Facebook Ads"];
 const interests = ["Residential", "Commercial", "Land"];
-const assignees = ["Auto-assign", "Katie Sims", "Bradley Lawlor", "Stephanie Nicol"];
+const assignees = [
+  "Auto-assign",
+  "Katie Sims",
+  "Bradley Lawlor",
+  "Stephanie Nicol",
+];
 
 export default function AddLeadModal({ onClose, onAdd }) {
   const [formData, setFormData] = useState({
@@ -65,7 +70,11 @@ export default function AddLeadModal({ onClose, onAdd }) {
                   value={option}
                 >
                   {({ selected }) => (
-                    <span className={`flex justify-between ${selected ? "font-medium" : ""}`}>
+                    <span
+                      className={`flex justify-between ${
+                        selected ? "font-medium" : ""
+                      }`}
+                    >
                       {option}
                       {selected && <span className="text-gray-500">✔</span>}
                     </span>
@@ -80,8 +89,16 @@ export default function AddLeadModal({ onClose, onAdd }) {
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 px-2 sm:px-4">
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg p-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm">
+      <div className="bg-white p-6 md:p-8 rounded-xl w-full max-w-2xl shadow-xl relative">
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl"
+        >
+          ✕
+        </button>
+
         <h2 className="text-xl font-semibold mb-1">Add New Lead</h2>
         <p className="text-sm text-gray-500 mb-4">
           Enter the details of the new lead to add to your CRM
@@ -126,19 +143,28 @@ export default function AddLeadModal({ onClose, onAdd }) {
 
           {/* Lead Source & Property Interest */}
           <div className="flex flex-col sm:flex-row gap-4">
-            {renderListbox("Lead Source", formData.source, (val) =>
-              setFormData((prev) => ({ ...prev, source: val }))
-            , leadSources)}
+            {renderListbox(
+              "Lead Source",
+              formData.source,
+              (val) => setFormData((prev) => ({ ...prev, source: val })),
+              leadSources
+            )}
 
-            {renderListbox("Property Interest", formData.interest, (val) =>
-              setFormData((prev) => ({ ...prev, interest: val }))
-            , interests)}
+            {renderListbox(
+              "Property Interest",
+              formData.interest,
+              (val) => setFormData((prev) => ({ ...prev, interest: val })),
+              interests
+            )}
           </div>
 
           {/* Assign To */}
-          {renderListbox("Assign To", formData.assignTo, (val) =>
-            setFormData((prev) => ({ ...prev, assignTo: val }))
-          , assignees)}
+          {renderListbox(
+            "Assign To",
+            formData.assignTo,
+            (val) => setFormData((prev) => ({ ...prev, assignTo: val })),
+            assignees
+          )}
 
           {/* Notes */}
           <div className={fieldWrapper}>

@@ -1,6 +1,57 @@
-import React from "react";
+// components/AddTaskModal.jsx
+import React, { useState } from "react";
+import { AlertTriangle, Clock, CheckCircle } from "lucide-react";
 
-const AddTaskModal = ({ onClose }) => {
+// Mapping for icon based on priority (or status)
+const iconMap = {
+  High: "AlertTriangle",
+  Medium: "Clock", // Assuming a new medium priority icon
+  Low: "Clock",
+};
+
+const AddTaskModal = ({ onClose, onSave }) => {
+  const [taskDetails, setTaskDetails] = useState({
+    name: "",
+    priority: "Low", // Default priority
+    dueDate: "",
+    assignee: "",
+    relatedTo: "",
+    notes: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTaskDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Determine iconType based on priority
+    const newIconType = taskDetails.priority === "High" ? "AlertTriangle" : "Clock";
+    const newIconColor =
+      taskDetails.priority === "High"
+        ? "text-red-500"
+        : taskDetails.priority === "Medium"
+        ? "text-blue-500"
+        : "text-yellow-500";
+
+    // Create the new task object with all the required properties
+    const newTask = {
+      ...taskDetails,
+      iconType: newIconType,
+      iconColor: newIconColor,
+      status: "Pending", // New tasks are always pending by default
+    };
+
+    // Call the onSave function from the parent to add the task
+    onSave(newTask);
+    onClose(); // Close the modal after saving
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm">
       <div className="bg-white p-6 md:p-8 rounded-xl w-full max-w-2xl shadow-xl relative">
@@ -21,14 +72,18 @@ const AddTaskModal = ({ onClose }) => {
         </div>
 
         {/* Form */}
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Task Name */}
           <div className="col-span-2">
-            <label className="block text-sm text-gray-700 mb-1">
+            <label htmlFor="name" className="block text-sm text-gray-700 mb-1">
               Task Name
             </label>
             <input
               type="text"
+              id="name"
+              name="name"
+              value={taskDetails.name}
+              onChange={handleChange}
               placeholder="Call client regarding inspection"
               className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
@@ -36,31 +91,48 @@ const AddTaskModal = ({ onClose }) => {
 
           {/* Priority */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">Priority</label>
-            <select className="w-full border rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
-              <option value="">Select</option>
-              <option>High</option>
-              <option>Medium</option>
-              <option>Low</option>
+            <label htmlFor="priority" className="block text-sm text-gray-700 mb-1">
+              Priority
+            </label>
+            <select
+              id="priority"
+              name="priority"
+              value={taskDetails.priority}
+              onChange={handleChange}
+              className="w-full border rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            >
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
             </select>
           </div>
 
           {/* Due Date */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">Due Date</label>
+            <label htmlFor="dueDate" className="block text-sm text-gray-700 mb-1">
+              Due Date
+            </label>
             <input
               type="date"
+              id="dueDate"
+              name="dueDate"
+              value={taskDetails.dueDate}
+              onChange={handleChange}
               className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
 
           {/* Assignee */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">
+            <label htmlFor="assignee" className="block text-sm text-gray-700 mb-1">
               Assign To
             </label>
             <input
               type="text"
+              id="assignee"
+              name="assignee"
+              value={taskDetails.assignee}
+              onChange={handleChange}
               placeholder="Autumn Phillips"
               className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
@@ -68,11 +140,15 @@ const AddTaskModal = ({ onClose }) => {
 
           {/* Related To */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">
+            <label htmlFor="relatedTo" className="block text-sm text-gray-700 mb-1">
               Related To
             </label>
             <input
               type="text"
+              id="relatedTo"
+              name="relatedTo"
+              value={taskDetails.relatedTo}
+              onChange={handleChange}
               placeholder="Robert Taylor (Lead)"
               className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
@@ -80,8 +156,12 @@ const AddTaskModal = ({ onClose }) => {
 
           {/* Notes */}
           <div className="col-span-2">
-            <label className="block text-sm text-gray-700 mb-1">Notes</label>
+            <label htmlFor="notes" className="block text-sm text-gray-700 mb-1">Notes</label>
             <textarea
+              id="notes"
+              name="notes"
+              value={taskDetails.notes}
+              onChange={handleChange}
               placeholder="Additional notes..."
               rows={3}
               className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"

@@ -75,15 +75,49 @@ const sourceColors = {
 export default function LeadsManagement() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [leads, setLeads] = useState(initialLeads);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [dateFilter, setDateFilter] = useState("all"); // 'all', 'last7days', 'last30days', etc.
 
   const handleAddLead = (newLead) => {
     const formattedLead = {
       ...newLead,
-      contactDate: new Date().toDateString(),
+      // Format the date to be consistent with the initial data
+      contactDate: new Date().toLocaleDateString("en-US", {
+        month: "short",
+        day: "2-digit",
+        year: "numeric",
+      }),
       avatar: `https://i.pravatar.cc/40?img=${Math.floor(Math.random() * 70)}`,
     };
     setLeads((prev) => [formattedLead, ...prev]);
   };
+
+  // Function to filter leads based on search term and date range
+  const filteredLeads = leads.filter((lead) => {
+    // Search functionality: Check if the search term exists in any of the specified fields
+    const matchesSearch =
+      lead.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      lead.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      lead.assigned.toLowerCase().includes(searchTerm.toLowerCase());
+
+    // Date range functionality: Check if the lead's contact date falls within the selected range
+    const today = new Date();
+    const leadContactDate = new Date(lead.contactDate);
+    let matchesDateRange = true;
+
+    if (dateFilter === "last7days") {
+      const sevenDaysAgo = new Date(today);
+      sevenDaysAgo.setDate(today.getDate() - 7);
+      matchesDateRange = leadContactDate >= sevenDaysAgo;
+    } else if (dateFilter === "last30days") {
+      const thirtyDaysAgo = new Date(today);
+      thirtyDaysAgo.setDate(today.getDate() - 30);
+      matchesDateRange = leadContactDate >= thirtyDaysAgo;
+    }
+
+    // Return true only if both search and date range filters match
+    return matchesSearch && matchesDateRange;
+  });
 
   return (
     <div className="px-4 py-6 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
@@ -100,13 +134,23 @@ export default function LeadsManagement() {
 
         {/* Right: Search + Filter + Button */}
         <div className="flex flex-wrap items-center justify-end gap-2 w-full sm:w-auto">
-          {/* Slightly smaller SearchBar */}
+          {/* SearchBar component: Update state on change */}
           <div className="w-full sm:w-[200px]">
-            <SearchBar searchPlaceholder="Search Leads" />
+            <SearchBar
+              searchPlaceholder="Search Leads"
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
 
-          <select className="px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 w-full sm:w-auto">
-            <option>Filter by Date Range</option>
+          {/* Date Range Filter: Update state on change */}
+          <select
+            className="px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 w-full sm:w-auto"
+            value={dateFilter}
+            onChange={(e) => setDateFilter(e.target.value)}
+          >
+            <option value="all">All Dates</option>
+            <option value="last7days">Last 7 Days</option>
+            <option value="last30days">Last 30 Days</option>
           </select>
 
           <button
@@ -181,7 +225,8 @@ export default function LeadsManagement() {
             </tr>
           </thead>
           <tbody>
-            {leads.map((lead, index) => (
+            {/* Map over the filteredLeads array to render the table rows */}
+            {filteredLeads.map((lead, index) => (
               <tr key={index} className="border-t hover:bg-gray-50 transition">
                 <td className="p-3 whitespace-nowrap">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2">

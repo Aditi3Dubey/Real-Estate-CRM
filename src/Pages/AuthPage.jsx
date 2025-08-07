@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Eye, EyeOff, User, Mail, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
-import loginImage from "../assets/loginImage.png";
+import BgImage from "../assets/Bg.png";
 
 // Move InputField outside to prevent recreation on every render
 const InputField = ({
@@ -346,13 +346,13 @@ const AuthPage = ({ onLogin }) => {
     <div className="flex h-screen w-screen overflow-hidden">
       <div className="w-1/2 hidden lg:block">
         <img
-          src={loginImage}
+          src={BgImage}
           alt="login"
           className="w-full h-full object-cover"
         />
       </div>
 
-      <div className="w-full lg:w-1/2 flex items-center justify-center bg-gradient-to-br from-white to-orange-50 px-4">
+      <div className="w-full lg:w-1/2 flex items-center justify-center bg-[#FFFFFF] px-4">
         <div className="w-full max-w-md">
           <img src={logo} className="w-36 h-26 m-auto mb-2" alt="Logo" />
           {renderScreen()}

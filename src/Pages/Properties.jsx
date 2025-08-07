@@ -237,6 +237,34 @@ const PropertyCard = ({ data, viewMode }) => {
 const Properties = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [viewMode, setViewMode] = useState("grid");
+  // State for search and filter functionality
+  const [searchTerm, setSearchTerm] = useState("");
+  const [priceRange, setPriceRange] = useState("");
+
+  // Function to filter properties based on search term and price range
+  const filteredProperties = propertyData.filter((property) => {
+    // Convert property details to lowercase for case-insensitive search
+    const lowercasedSearchTerm = searchTerm.toLowerCase();
+
+    // Check if the property's title or address includes the search term
+    const matchesSearch =
+      property.title.toLowerCase().includes(lowercasedSearchTerm) ||
+      property.address.toLowerCase().includes(lowercasedSearchTerm);
+
+    // Filter by price range
+    let matchesPriceRange = true;
+    if (priceRange) {
+      if (priceRange === "201+") {
+        matchesPriceRange = property.price > 201000; // Assuming prices are in thousands
+      } else {
+        const [min, max] = priceRange.split("-").map(Number);
+        matchesPriceRange = property.price >= min * 1000 && property.price <= max * 1000;
+      }
+    }
+
+    // Return true if both search and price range filters match
+    return matchesSearch && matchesPriceRange;
+  });
 
   return (
     <div className="p-4 max-w-screen bg-gray-50 min-h-screen overflow-x-hidden">
@@ -247,7 +275,11 @@ const Properties = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto items-center">
-          <SearchBar searchPlaceholder="Search Visits..." />
+          {/* SearchBar component with an onChange handler to update the searchTerm state */}
+          <SearchBar 
+            searchPlaceholder="Search Properties"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
 
           <div className="flex border border-gray-300 rounded-md overflow-hidden text-sm bg-white text-gray-700 w-full sm:w-auto">
             {["Grid", "List"].map((mode) => (
@@ -266,12 +298,18 @@ const Properties = () => {
           </div>
 
           <div className="relative text-sm text-gray-700 w-full sm:w-auto">
-            <select className="block w-full min-w-[180px] px-4 py-3 pr-10 border border-gray-300 rounded-md bg-white appearance-none">
-              <option value="">Filter by Data Range</option>
-              <option value="0-50">0 - 50</option>
-              <option value="51-100">51 - 100</option>
-              <option value="101-200">101 - 200</option>
-              <option value="201+">201+</option>
+            {/* Filter by price range select dropdown */}
+            <select
+              className="block w-full min-w-[180px] px-4 py-3 pr-10 border border-gray-300 rounded-md bg-white appearance-none"
+              value={priceRange}
+              onChange={(e) => setPriceRange(e.target.value)}
+            >
+              <option value="">Filter by Price Range</option>
+              {/* Note: Values are strings to be easily parsed */}
+              <option value="0-50">0 - 50K</option>
+              <option value="51-100">51K - 100K</option>
+              <option value="101-200">101K - 200K</option>
+              <option value="201+">201K+</option>
             </select>
             <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
           </div>
@@ -337,6 +375,7 @@ const Properties = () => {
         </div>
       </div>
 
+      {/* Render the filtered properties */}
       <div
         className={`${
           viewMode === "grid"
@@ -344,9 +383,15 @@ const Properties = () => {
             : "flex flex-col gap-4"
         }`}
       >
-        {propertyData.map((item) => (
-          <PropertyCard key={item.id} data={item} viewMode={viewMode} />
-        ))}
+        {filteredProperties.length > 0 ? (
+          filteredProperties.map((item) => (
+            <PropertyCard key={item.id} data={item} viewMode={viewMode} />
+          ))
+        ) : (
+          <p className="text-center text-gray-500 col-span-full">
+            No properties found matching your search.
+          </p>
+        )}
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ function App() {
       {/* Show Header only if logged in */}
       {isLoggedIn && <Header onLogout={handleLogout} />}
 
-      <div className="flex flex-col min-h-screen bg-gray-100 overflow-x-hidden">
+      <div className="flex flex-col min-h-screen bg-gray-100 overflow-x-hidden select-none">
         {isLoggedIn ? (
           // Protected layout
           <div className="flex flex-1 pt-[64px]">
