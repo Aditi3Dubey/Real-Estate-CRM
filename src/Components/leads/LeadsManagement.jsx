@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddLeadModal from "./AddLeadModal";
-import { Phone, Mail, CalendarDays, ArrowLeft } from "lucide-react";
+import { Phone, Mail, CalendarDays, ArrowLeft, Filter } from "lucide-react";
 import SummaryCard from "../SummaryCard";
 import SearchBar from "../SearchBar";
 import TableFooter from "../TableFooter";
@@ -93,28 +93,37 @@ export default function LeadsManagement() {
         <div className="flex items-center gap-2 min-w-[150px]">
           <ArrowLeft className="w-5 h-5 text-gray-500 cursor-pointer" />
           <h1 className="text-lg sm:text-xl font-semibold">Lead Management</h1>
+          {/* Mobile Filter Icon */}
+          <button className="block sm:hidden text-gray-500 hover:text-gray-700 ml-36">
+            <Filter className="w-5 h-5" />
+          </button>
         </div>
 
         {/* Spacer (center blank area) */}
         <div className="flex-1 hidden md:block" />
 
         {/* Right: Search + Filter + Button */}
-        <div className="flex flex-wrap items-center justify-end gap-2 w-full sm:w-auto">
-          {/* Slightly smaller SearchBar */}
-          <div className="w-full sm:w-[200px]">
-            <SearchBar searchPlaceholder="Search Leads" />
+        <div className="flex flex-col sm:flex-row sm:items-center justify-end w-full sm:w-auto">
+          {/* Row for SearchBar & Add Button on mobile */}
+          <div className="flex w-full gap-2 sm:w-auto">
+            <div className="flex-1">
+              <SearchBar searchPlaceholder="Search Leads" />
+            </div>
+
+            <button
+              onClick={() => setShowAddModal(true)}
+              className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 text-sm whitespace-nowrap"
+            >
+              Add Leads
+            </button>
           </div>
 
-          <select className="px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 w-full sm:w-auto">
-            <option>Filter by Date Range</option>
-          </select>
-
-          <button
-            onClick={() => setShowAddModal(true)}
-            className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 text-sm w-full sm:w-auto"
-          >
-            Add Leads
-          </button>
+          {/* Filter Dropdown (only for sm and up) */}
+          <div className="hidden sm:block ml-2">
+            <select className="px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700">
+              <option>Filter by Date Range</option>
+            </select>
+          </div>
         </div>
       </div>
 
