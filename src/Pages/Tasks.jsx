@@ -13,9 +13,9 @@ import {
   Wallet,
 } from "lucide-react";
 import TableFooter from "../Components/TableFooter";
-import SearchBar from "../Components/Searchbar";
 import SummaryCard from "../Components/SummaryCard";
 import AddTaskModal from "../Components/AddTaskModal";
+import SearchBar from "../Components/SearchBar";
 
 // Initial hardcoded task data (moved to a separate variable)
 const initialTasks = [
@@ -145,7 +145,7 @@ const Tasks = () => {
   const [filter, setFilter] = useState("All");
   const [openMenuIndex, setOpenMenuIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  
+
   // Use useState to manage the list of tasks
   const [tasks, setTasks] = useState(initialTasks);
 
@@ -209,6 +209,53 @@ const Tasks = () => {
         </div>
       </div>
       {/* ... (SummaryCards and Table content remains the same) ... */}
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible mb-6">
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Total Task"
+            value="154"
+            change="+12.5%"
+            color="green"
+            textColor="green"
+            period="from last month"
+            iconColor="green"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Pending"
+            value="94"
+            change="+15.3%"
+            color="blue"
+            textColor="green"
+            iconColor="green"
+            period="from last month"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Overdue"
+            value="24.7%"
+            change="-2.1%"
+            color="purple"
+            textColor="red"
+            period="from last month"
+            iconColor="red"
+          />
+        </div>
+        <div className="min-w-[250px] sm:min-w-0">
+          <SummaryCard
+            title="Completed"
+            value="32"
+            change="+8.2%"
+            color="pink"
+            textColor="green"
+            iconColor="green"
+            period="from last month"
+          />
+        </div>
+      </div>
+
       <div className="overflow-x-auto bg-white rounded-lg shadow">
         <table className="min-w-full divide-y">
           <thead className="text-left text-sm font-semibold text-gray-700">

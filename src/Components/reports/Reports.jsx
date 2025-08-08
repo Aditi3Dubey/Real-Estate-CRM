@@ -15,8 +15,8 @@ const Reports = () => {
   const tabs = ["Financial", "Performance", "Marketing", "Inventory", "Team"];
 
   return (
-    <div className="px-4 py-6 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
-      <div  className="flex flex-col sm:flex-row justify-between gap-6">
+    <div className="p-4 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
+      <div className="flex flex-col sm:flex-row justify-between gap-6">
         {/* Header */}
         <div className="flex items-center gap-2 mb-4">
           <ArrowLeft className="h-5 w-5" />
@@ -40,6 +40,7 @@ const Reports = () => {
               bgColor="bg-white"
               textColor="black"
               borderColor="border-gray-300"
+              className="px-3 py-2"
             />
             <Button
               label="Share"

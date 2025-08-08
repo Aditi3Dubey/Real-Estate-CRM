@@ -210,7 +210,7 @@ const PropertyCard = ({ data, viewMode }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center text-xs text-gray-600 gap-x-4">
+          <div className="flex flex-wrap items-center text-xs text-gray-600 gap-x-6">
             <span className="flex items-center gap-1">
               <Bed size={14} />
               {beds}
@@ -258,7 +258,8 @@ const Properties = () => {
         matchesPriceRange = property.price > 201000; // Assuming prices are in thousands
       } else {
         const [min, max] = priceRange.split("-").map(Number);
-        matchesPriceRange = property.price >= min * 1000 && property.price <= max * 1000;
+        matchesPriceRange =
+          property.price >= min * 1000 && property.price <= max * 1000;
       }
     }
 
@@ -276,7 +277,7 @@ const Properties = () => {
 
         <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto items-center">
           {/* SearchBar component with an onChange handler to update the searchTerm state */}
-          <SearchBar 
+          <SearchBar
             searchPlaceholder="Search Properties"
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -300,7 +301,7 @@ const Properties = () => {
           <div className="relative text-sm text-gray-700 w-full sm:w-auto">
             {/* Filter by price range select dropdown */}
             <select
-              className="block w-full min-w-[180px] px-4 py-3 pr-10 border border-gray-300 rounded-md bg-white appearance-none"
+              className="block w-full min-w-[180px] px-3 py-2 pr-10 border border-gray-300 rounded-md bg-white appearance-none"
               value={priceRange}
               onChange={(e) => setPriceRange(e.target.value)}
             >
@@ -315,7 +316,7 @@ const Properties = () => {
           </div>
 
           <button
-            className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 w-full sm:w-auto"
+            className="bg-orange-500 text-white px-3 py-2 rounded hover:bg-orange-600 w-full sm:w-auto"
             onClick={() => setShowAddModal(true)}
           >
             Add Properties
@@ -324,7 +325,7 @@ const Properties = () => {
       </div>
 
       {/* SummaryCards */}
-      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible mb-6">
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="Total Properties"
@@ -333,7 +334,7 @@ const Properties = () => {
             iconColor="green"
             change="+5.3%"
             period="from last month"
-            color="blue"
+            color="green"
             textColor="green"
           />
         </div>

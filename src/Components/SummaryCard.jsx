@@ -53,7 +53,7 @@ const SummaryCard = ({
 
       <div className="flex flex-col w-full">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-gray-700">{title}</p>
+          <p className="text-lg  font-semibold ">{title}</p>
           <h2 className="text-lg font-semibold">{value}</h2>
         </div>
 

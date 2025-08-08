@@ -37,7 +37,10 @@ const RecentLeads = () => {
 
   return (
     <div className="bg-white rounded-2xl shadow p-4 max-w-full mx-auto overflow-hidden">
-      <div className="flex justify-between items-center mb-4 bg-pink-100 p-2 rounded-md">
+      <div
+        className="flex justify-between items-center mb-4  p-2 rounded-md"
+        style={{ backgroundColor: "#FFF4F0" }}
+      >
         <h2 className="text-lg font-semibold">Recent Leads</h2>
         <button>View All</button>
       </div>

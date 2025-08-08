@@ -118,7 +118,7 @@ const CustomTooltip = ({ active, payload }) => {
 
 const FinancialTab = () => {
   return (
-    <div className="space-y-10 px-4 md:px-6">
+    <div className="space-y-10">
       {/* Summary Cards */}
       <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
         <div className="min-w-[250px] sm:min-w-0">
@@ -129,7 +129,7 @@ const FinancialTab = () => {
             color="blue"
             icon={WalletCards}
             period="vs last Year"
-            iconColor="white"
+            iconColor="green"
             textColor="green"
           />
         </div>
@@ -139,7 +139,7 @@ const FinancialTab = () => {
             value="₹6,00,000"
             change="-5%"
             icon={TrendingUp}
-            color="blue"
+            color="green"
             iconColor="red"
             period="vs last Year"
             textColor="red"
@@ -163,7 +163,7 @@ const FinancialTab = () => {
       <div>
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold">Financial Performance</h2>
-          <button className="bg-pink-100 text-black text-sm font-medium rounded px-6 py-2">
+          <button className="bg-[#FFEFE9] text-black text-sm font-medium rounded px-6 py-2">
             Filter
           </button>
         </div>

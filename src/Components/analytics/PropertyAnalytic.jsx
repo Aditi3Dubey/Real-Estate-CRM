@@ -68,7 +68,7 @@ const data = Array.from({ length: 30 }, (_, i) => ({
 const PropertyAnalytic = () => {
   return (
     <div>
-      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible mb-6">
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="Total Leads"
@@ -89,7 +89,7 @@ const PropertyAnalytic = () => {
             iconColor="green"
             change="8.2%"
             period="vs last month"
-            color="blue"
+            color="green"
             bgcolor="bg-purple-100"
             textColor="green"
           />
@@ -114,7 +114,7 @@ const PropertyAnalytic = () => {
             iconColor="red"
             change="3.1%"
             period="vs last month"
-            color="purple"
+            color="pink"
             textColor="red"
           />
         </div>

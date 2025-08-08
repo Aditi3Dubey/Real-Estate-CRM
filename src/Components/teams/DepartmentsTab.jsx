@@ -30,7 +30,7 @@ const departments = [
 
 const Departments = () => {
   return (
-    <div className="p-4 sm:p-6 font-semibold">
+    <div className="font-semibold">
       <h1 className="mb-4">Team Management</h1>
 
       {/* Grid of Departments */}
@@ -40,6 +40,7 @@ const Departments = () => {
             key={index}
             className="bg-white rounded-xl shadow p-4 flex flex-col justify-between"
           >
+            {/* Header */}
             <div className="flex justify-between items-start">
               <h3 className="text-base font-semibold text-black">
                 {dept.name}
@@ -47,26 +48,26 @@ const Departments = () => {
               <MoreVertical className="w-4 h-4 text-gray-400" />
             </div>
 
-            <div className="text-sm text-gray-600 mt-2 space-y-1">
-              <p>
-                <span className="font-medium text-gray-800">Team Lead:</span>{" "}
-                {dept.lead}
-              </p>
-              <p>
-                <span className="font-medium text-gray-800">Team Members:</span>{" "}
-                {dept.members}
-              </p>
+            {/* Info Row */}
+            <div className="mt-4 flex items-center text-sm text-gray-600 divide-x divide-gray-200">
+              <div className="px-3 first:pl-0">
+                <p className="text-xs">Team Lead</p>
+                <p className="font-medium text-gray-800">{dept.lead}</p>
+              </div>
+              <div className="px-3">
+                <p className="text-xs">Team Members</p>
+                <p className="font-medium text-gray-800">{dept.members}</p>
+              </div>
               {dept.listings !== null && (
-                <p>
-                  <span className="font-medium text-gray-800">
-                    Active Listings:
-                  </span>{" "}
-                  {dept.listings}
-                </p>
+                <div className="px-3">
+                  <p className="text-xs">Active Listings</p>
+                  <p className="font-medium text-gray-800">{dept.listings}</p>
+                </div>
               )}
             </div>
 
-            <button className="mt-4 text-sm border px-4 py-2 rounded hover:bg-gray-100 transition flex items-center gap-2 w-fit">
+            {/* Button */}
+            <button className="mt-8 text-sm border px-4 py-2 rounded hover:bg-gray-100 transition flex items-center gap-2 w-fit">
               View Team <span className="text-lg leading-none">&rarr;</span>
             </button>
           </div>
@@ -84,29 +85,41 @@ const Departments = () => {
           </div>
 
           {/* Vertical Line */}
-          <div className="w-0.5 h-6 bg-[#fe5d2c]"></div>
+          <div className="w-0.5 h-12 bg-[#F4DBD5]"></div>
 
           {/* Horizontal + Vertical Lines and Boxes */}
           <div className="relative w-full max-w-5xl px-2 sm:px-6">
             {/* Horizontal Line */}
-            <div className="absolute top-0 left-[12.5%] right-[12.5%] h-0.5 bg-[#fe5d2c]"></div>
+            <div className="absolute top-0 left-[12.5%] right-[12.5%] h-0.5 bg-[#F4DBD5]"></div>
 
             {/* Vertical lines only under Box 1 & 4 */}
-            <div className="absolute top-0 h-4 w-0.5 bg-[#fe5d2c] left-[12.5%]"></div>
-            <div className="absolute top-0 h-4 w-0.5 bg-[#fe5d2c] right-[12.5%]"></div>
+            <div className="absolute top-0 h-12 w-0.5 bg-[#F4DBD5] left-[12.5%]"></div>
+            <div className="absolute top-0 h-12 w-0.5 bg-[#F4DBD5] right-[12.5%]"></div>
 
             {/* Boxes */}
-            <div className="flex flex-col sm:flex-row justify-between pt-4 gap-4 text-sm text-center">
-              <div className="bg-white rounded-md shadow-md px-4 py-3 font-medium w-full sm:w-[22%] mx-auto">
+            <div className="flex flex-col sm:flex-row justify-between pt-12 gap-4 text-sm text-center">
+              <div
+                className="bg-white rounded-md shadow-md px-4 py-3 font-medium w-full sm:w-[22%] mx-auto"
+                style={{ border: "0.91px solid #FFB59A" }}
+              >
                 Residential Sales
               </div>
-              <div className="bg-white rounded-md shadow-md px-4 py-3 font-medium w-full sm:w-[22%] mx-auto">
+              <div
+                className="bg-white rounded-md shadow-md px-4 py-3 font-medium w-full sm:w-[22%] mx-auto"
+                style={{ border: "0.91px solid #FFB59A" }}
+              >
                 Commercial Properties
               </div>
-              <div className="bg-white rounded-md shadow-md px-4 py-3 font-medium w-full sm:w-[22%] mx-auto">
+              <div
+                className="bg-white rounded-md shadow-md px-4 py-3 font-medium w-full sm:w-[22%] mx-auto"
+                style={{ border: "0.91px solid #FFB59A" }}
+              >
                 Administration
               </div>
-              <div className="bg-white rounded-md shadow-md px-4 py-3 font-medium w-full sm:w-[22%] mx-auto">
+              <div
+                className="bg-white rounded-md shadow-md px-4 py-3 font-medium w-full sm:w-[22%] mx-auto"
+                style={{ border: "0.91px solid #FFB59A" }}
+              >
                 Marketing
               </div>
             </div>

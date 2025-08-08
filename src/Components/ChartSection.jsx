@@ -11,7 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
- 
+
 const pieData = [
   { name: "Website Seo", value: 35, color: "#2ec4b6" },
   { name: "Social Media", value: 25, color: "#ffc107" },
@@ -19,7 +19,7 @@ const pieData = [
   { name: "Referrals", value: 12, color: "#e64980" },
   { name: "Email", value: 10, color: "#845ef7" },
 ];
- 
+
 const barData = [
   { name: "Website Seo", leads: 250, cost: 340 },
   { name: "Social Media", leads: 550, cost: 430 },
@@ -27,7 +27,7 @@ const barData = [
   { name: "Referrals", leads: 70, cost: 270 },
   { name: "Email", leads: 280, cost: 410 },
 ];
- 
+
 const ChartSection = () => {
   return (
     <div className="bg-[#fff4f3] p-4 sm:p-6 md:p-8 rounded-xl w-full">
@@ -69,7 +69,7 @@ const ChartSection = () => {
             ))}
           </div>
         </div>
- 
+
         {/* Bar Chart */}
         <div className="w-full md:w-1/2 h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -87,7 +87,7 @@ const ChartSection = () => {
               <Bar
                 dataKey="cost"
                 fill="#fcbf49"
-                name="Cost per Lead ($)"
+                name="Cost per Lead (₹)"
                 radius={[6, 6, 0, 0]}
               />
             </BarChart>
@@ -97,8 +97,5 @@ const ChartSection = () => {
     </div>
   );
 };
- 
+
 export default ChartSection;
- 
- 
- 

@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import AddLeadModal from "./AddLeadModal";
-import { Phone, Mail, CalendarDays, ArrowLeft } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  CalendarDays,
+  ArrowLeft,
+  ChevronDown,
+} from "lucide-react";
 import SummaryCard from "../SummaryCard";
 import SearchBar from "../SearchBar";
 import TableFooter from "../TableFooter";
@@ -120,7 +126,7 @@ export default function LeadsManagement() {
   });
 
   return (
-    <div className="px-4 py-6 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
+    <div className="p-4 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
       {/* Top Bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         {/* Left: Title */}
@@ -143,15 +149,20 @@ export default function LeadsManagement() {
           </div>
 
           {/* Date Range Filter: Update state on change */}
-          <select
-            className="px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 w-full sm:w-auto"
-            value={dateFilter}
-            onChange={(e) => setDateFilter(e.target.value)}
-          >
-            <option value="all">All Dates</option>
-            <option value="last7days">Last 7 Days</option>
-            <option value="last30days">Last 30 Days</option>
-          </select>
+          <div className="flex-1">
+            <div className="relative text-sm text-gray-700">
+              <select
+                className="w-full border rounded px-3 py-2 text-sm appearance-none"
+                value={dateFilter}
+                onChange={(e) => setDateFilter(e.target.value)}
+              >
+                <option value="all">All Dates</option>
+                <option value="last7days">Last 7 Days</option>
+                <option value="last30days">Last 30 Days</option>
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+            </div>
+          </div>
 
           <button
             onClick={() => setShowAddModal(true)}
@@ -163,7 +174,7 @@ export default function LeadsManagement() {
       </div>
 
       {/* Summary Cards */}
-      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6 min-w-[250px] sm:min-w-0">
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible  mb-6 min-w-[250px] sm:min-w-0">
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="Total Leads"

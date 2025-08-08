@@ -25,13 +25,16 @@ import {
   Snowflake,
   ChevronLeft,
   ChevronRight,
+  Hotel,
+  ShieldCheckIcon,
+  ShieldCloseIcon,
 } from "lucide-react";
- 
+
 const PropertyDetail = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const data = state?.property;
- 
+
   data.floorPlans = [
     {
       image:
@@ -66,10 +69,10 @@ const PropertyDetail = () => {
       emi: "₹2.91 L",
     },
   ];
- 
+
   if (!data) return <div>No data found.</div>;
   const details = data.details ?? {};
- 
+
   const [selected, setSelected] = useState("All");
   const [currentIndex, setCurrentIndex] = useState(0);
   const handlePrev = () => {
@@ -78,9 +81,9 @@ const PropertyDetail = () => {
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === data.images.length - 1 ? 0 : prev + 1));
   };
- 
+
   const options = ["All", "3 BHK", "4 BHK"];
- 
+
   return (
     <div className="p-4 bg-gray-50 min-h-screen overflow-x-hidden">
       {/* Back Button and Title */}
@@ -88,7 +91,7 @@ const PropertyDetail = () => {
         <ArrowLeft className="cursor-pointer" onClick={() => navigate(-1)} />
         <h1 className="text-xl font-semibold">{data.title}</h1>
       </div>
- 
+
       {/* Image Gallery */}
       <div className="flex flex-col lg:flex-row gap-4 mb-6 relative">
         <div className="relative w-full lg:w-[calc(100%-200px)]">
@@ -116,7 +119,7 @@ const PropertyDetail = () => {
             <ChevronRight />
           </button>
         </div>
- 
+
         {/* Thumbnails - only on large screens */}
         <div className="hidden lg:flex flex-col gap-4 w-48 h-[400px]">
           {data.images
@@ -135,7 +138,7 @@ const PropertyDetail = () => {
             .slice(0, 3)}
         </div>
       </div>
- 
+
       {/* Overview */}
       <div className="mb-6">
         <div className="flex justify-between items-center flex-wrap gap-2">
@@ -152,7 +155,7 @@ const PropertyDetail = () => {
           {data.address}
         </div>
       </div>
- 
+
       {/* Property Details */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-6 text-gray-800">
         <DetailCard icon={<Layers />} label="Floors" value={details?.floor} />
@@ -196,9 +199,13 @@ const PropertyDetail = () => {
           label="Property Age"
           value={details?.age}
         />
-        <DetailCard icon={<Ruler />} label="Area" value={details?.area} />
+        <DetailCard
+          icon={<ShieldCloseIcon />}
+          label="24/7 Security"
+          value={details?.area}
+        />
       </div>
- 
+
       {/* Floor Plans */}
       <div className="mb-10">
         <h3 className="text-xl font-bold mb-4 mt-8">
@@ -219,13 +226,14 @@ const PropertyDetail = () => {
             </button>
           ))}
         </div>
- 
+
         {Array.isArray(data.floorPlans) && data.floorPlans.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {data.floorPlans.map((plan, i) => (
               <div
                 key={i}
-                className="border rounded-xl p-3 shadow-sm bg-pink-100"
+                className="border rounded-xl p-3 shadow-sm "
+                style={{ backgroundColor: "#FFF7F5" }}
               >
                 <img
                   src={plan.image}
@@ -247,7 +255,7 @@ const PropertyDetail = () => {
           <p className="text-gray-500 italic">No floor plans available.</p>
         )}
       </div>
- 
+
       {/* Amenities */}
       <div className="mb-6">
         <h3 className="text-xl font-bold mb-4">{data.title} Amenities</h3>
@@ -292,18 +300,24 @@ const PropertyDetail = () => {
     </div>
   );
 };
- 
+
 // DetailCard Component
 const DetailCard = ({ icon, label, value, isFirst }) => (
   <div className={`flex items-start gap-4 ${!isFirst ? "" : ""}`}>
-    <div className="bg-pink-100 p-3 rounded-full">{icon}</div>
+    <div
+      className="p-3 rounded-full"
+      style={{
+        background: "linear-gradient(180deg, #F7FEFF 0%, #FFECE6 100%)",
+      }}
+    >
+      {icon}
+    </div>
+
     <div>
       <p className="text-sm font-semibold">{label}</p>
       <p className="text-sm">{value}</p>
     </div>
   </div>
 );
- 
+
 export default PropertyDetail;
- 
- 

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
- 
+
 const initialSettings = {
   email: true,
   lead: true,
   task: false,
   property: true,
 };
- 
+
 export default function Notifications() {
   const [settings, setSettings] = useState(initialSettings);
- 
+
   return (
-    <div className="w-full min-h-screen bg-white font-sans p-4 relative">
+    <div className="w-full min-h-screen bg-white font-sans relative">
       {/* Header */}
       <header className="mb-6">
         <h2 className="text-xl font-semibold">Notification Preferences</h2>
@@ -19,7 +19,7 @@ export default function Notifications() {
           Manage how you receive notifications.
         </p>
       </header>
- 
+
       {/* Settings */}
       <section className="space-y-5">
         <NotificationRow
@@ -47,9 +47,9 @@ export default function Notifications() {
           onChange={() => setSettings((s) => ({ ...s, property: !s.property }))}
         />
       </section>
- 
+
       {/* Save Button */}
-      <div className="fixed bottom-4 right-12">
+      <div className="fixed bottom-4 right-8">
         <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-2 rounded shadow">
           Save
         </button>
@@ -57,14 +57,14 @@ export default function Notifications() {
     </div>
   );
 }
- 
+
 // Toggle Component
 function NotificationRow({ title, desc, checked, onChange }) {
   return (
     <div className="flex items-center justify-between border-b pb-4">
       <div>
-        <h3 className="text-sm font-medium">{title}</h3>
-        <p className="text-xs text-gray-500">{desc}</p>
+        <h3 className="text-md font-medium">{title}</h3>
+        <p className="text-sm text-gray-500">{desc}</p>
       </div>
       <button
         type="button"
@@ -82,5 +82,3 @@ function NotificationRow({ title, desc, checked, onChange }) {
     </div>
   );
 }
- 
- 

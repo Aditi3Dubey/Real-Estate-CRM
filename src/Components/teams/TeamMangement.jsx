@@ -9,7 +9,7 @@ const TeamManagement = () => {
   const tabs = ["Team Members", "Departments"];
 
   return (
-    <div className="px-4 py-6 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
+    <div className="p-4 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         {/* Title */}
@@ -21,7 +21,9 @@ const TeamManagement = () => {
         {/* Controls */}
         <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
           {/* SearchBar only in Team Members tab */}
-          {activeTab === "Team Members" && <SearchBar searchPlaceholder="Search Team Members" />}
+          {activeTab === "Team Members" && (
+            <SearchBar searchPlaceholder="Search Team Members" />
+          )}
 
           {/* Filter Button — always visible */}
           <button className="border border-gray-300 px-3 py-2 text-sm rounded flex items-center gap-1 text-gray-600">

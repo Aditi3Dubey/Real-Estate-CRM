@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-} from "recharts";
+import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from "recharts";
 
 const propertySales = [
   { name: "Residential", value: 60 },
@@ -20,9 +14,9 @@ const SalesPie = () => {
   return (
     <div className="bg-white p-4 sm:p-6 rounded-xl shadow min-h-[350px] w-full">
       <div className="p-4 rounded-lg flex-1">
-        <div className="flex flex-col md:flex-row items-center md:items-start">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
           {/* Pie Chart */}
-          <div className="w-full md:w-2/3 h-[250px] md:h-[280px]">
+          <div className="w-[250px] h-[250px] md:w-[280px] md:h-[280px]">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -51,8 +45,8 @@ const SalesPie = () => {
           </div>
 
           {/* Legend */}
-          <div className="w-full md:w-1/3 mt-4 md:mt-0 md:ml-4">
-            <ul className="flex flex-wrap md:flex-col justify-center gap-3 md:gap-2">
+          <div>
+            <ul className="flex flex-col justify-center gap-3">
               {propertySales.map((item, index) => (
                 <li
                   key={index}

@@ -2,7 +2,7 @@ import { Printer, Mail, Download } from "lucide-react";
 import ChartSection from "../ChartSection";
 import RecentReports from "./RecentReports";
 import ScheduledReports from "./ScheduledReports";
- 
+
 const scheduledReports = [
   {
     name: "Q1 20245 financial performance",
@@ -26,7 +26,7 @@ const scheduledReports = [
     status: "Active",
   },
 ];
- 
+
 const recentReports = [
   {
     id: "TRX-01",
@@ -50,13 +50,13 @@ const recentReports = [
     size: "3.2 MB",
   },
 ];
- 
+
 export default function MarketingTab() {
   return (
-    <div className="p-4 sm:p-6 lg:p-6 space-y-2">
+    <div className="space-y-2">
       <ChartSection />
       <RecentReports reports={recentReports} />
       <ScheduledReports reports={scheduledReports} />
-      </div>
-  )}
-    
+    </div>
+  );
+}

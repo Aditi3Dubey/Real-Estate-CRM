@@ -91,50 +91,42 @@ const TeamMembersTab = () => {
       <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
-            title="Total Revenue"
-            value="₹7,00,000"
-            change="+15%"
-            color="blue"
+            title="Total Member"
+            value="8"
+            color="green"
             icon={WalletCards}
-            period="vs last Year"
-            iconColor="white"
             textColor="green"
+            iconColor="green"
           />
         </div>
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
-            title="Total Revenue"
-            value="₹7,00,000"
-            change="+15%"
+            title="Active Agents"
+            value="6"
             color="blue"
             icon={WalletCards}
-            period="vs last Year"
-            iconColor="white"
             textColor="green"
+            iconColor="green"
           />
         </div>
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
-            title="Total Revenue"
-            value="₹7,00,000"
-            change="+15%"
-            color="blue"
+            title="Team Leads"
+            value="2"
+            color="purple"
             icon={WalletCards}
-            period="vs last Year"
-            iconColor="white"
             textColor="green"
+            iconColor="green"
           />
         </div>
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
-            title="Total Revenue"
-            value="₹7,00,000"
-            change="+15%"
-            color="blue"
+            title="Departments"
+            value="4"
+            color="pink"
             icon={WalletCards}
-            period="vs last Year"
-            iconColor="white"
             textColor="green"
+            iconColor="green"
           />
         </div>
       </div>

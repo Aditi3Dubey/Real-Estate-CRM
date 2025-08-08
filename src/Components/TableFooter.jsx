@@ -1,11 +1,11 @@
 const TableFooter = ({ currentPage = 1, totalPages = 5 }) => {
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between px-4 py-3 text-sm text-gray-600 border-t bg-white ">
+    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between px-4 py-3 text-sm text-gray-600 bg-white border border-gray-200 shadow-sm rounded-md mt-4">
       {/* Results Info */}
       <div className="text-center sm:text-left">
         Showing 1 to 3 of 24 results
       </div>
- 
+
       {/* Pagination */}
       <div className="flex justify-center sm:justify-end flex-wrap gap-1">
         <button
@@ -36,7 +36,5 @@ const TableFooter = ({ currentPage = 1, totalPages = 5 }) => {
     </div>
   );
 };
- 
+
 export default TableFooter;
- 
- 

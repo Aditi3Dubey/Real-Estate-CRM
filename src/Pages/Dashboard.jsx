@@ -13,10 +13,10 @@ import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 
 const Dashboard = () => {
   return (
-    <div className="flex bg-gray-50 justify-end min-h-screen p-4 sm:p-6 w-full">
-      <div className="w-full space-y-6">
+    <div className="flex bg-gray-50 justify-end min-h-screen p-4 w-full">
+      <div className=" space-y-6">
         {/* SummaryCards */}
-        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6 min-w-[250px] sm:min-w-0">
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible  mb-6 min-w-[250px] sm:min-w-0">
           <div className="min-w-[250px] sm:min-w-0">
             <SummaryCard
               title="Total Leads"
@@ -25,7 +25,7 @@ const Dashboard = () => {
               iconColor="green"
               change="12.5%"
               period="vs last month"
-              color="blue"
+              color="green"
               textColor="green"
             />
           </div>
@@ -61,7 +61,7 @@ const Dashboard = () => {
               iconColor="red"
               change="3.1%"
               period="vs last month"
-              color="purple"
+              color="pink"
               textColor="red"
             />
           </div>

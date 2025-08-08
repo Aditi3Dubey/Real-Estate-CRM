@@ -10,15 +10,17 @@ const Payments = () => {
   const tabs = ["Transactions", "Invoices", "Payment method"];
 
   return (
-    <div className="px-4 py-6 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
+    <div className="p-4 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
       {/* Header Row */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div className="flex items-center gap-2">
           <ArrowLeft className="h-5 w-5 text-gray-500" />
-          <h1 className="text-xl font-semibold text-gray-800">Payments & Transactions</h1>
+          <h1 className="text-xl font-semibold text-gray-800">
+            Payments & Transactions
+          </h1>
         </div>
 
-        <div className="flex flex-wrap gap-2 sm:justify-end"> 
+        <div className="flex flex-wrap gap-2 sm:justify-end">
           <Button
             label="Export"
             bgColor="bg-white"
@@ -28,7 +30,7 @@ const Payments = () => {
           <Button
             label="New Transaction"
             bgColor="bg-orange-500"
-            textColor="white"
+            textColor="text-white"
             borderColor=""
           />
         </div>

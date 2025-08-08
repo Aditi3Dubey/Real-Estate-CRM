@@ -8,7 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
- 
+
 const leadSources = [
   { name: "Referrals", value: 25, color: "#7c3aed" },
   { name: "Facebook", value: 15, color: "#f97316" },
@@ -16,15 +16,15 @@ const leadSources = [
   { name: "Google ads", value: 18, color: "#06b6d4" },
   { name: "Proterty Portals", value: 10, color: "#0284c7 " },
 ];
- 
+
 const LeadSources = ({ type = "bar" }) => (
-  <div className="bg-white p-4 sm:p-6  shadow min-h-[350px] w-full">
+  <div className="bg-white p-4 sm:p-6  shadow min-h-[350px] w-full rounded-xl">
     {/* Pie Chart Only */}
     {type === "pie" && (
       <div className="p-4 rounded-lg flex-1">
-        <div className="flex flex-col md:flex-row items-center md:items-start">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
           {/* Chart */}
-          <div className="w-full md:w-2/3 h-[250px] md:h-[280px]">
+          <div className="w-[250px] h-[250px]">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -51,10 +51,10 @@ const LeadSources = ({ type = "bar" }) => (
               </PieChart>
             </ResponsiveContainer>
           </div>
- 
+
           {/* Legend */}
-          <div className="w-full md:w-1/3 mt-4 md:mt-0 md:ml-4">
-            <ul className="flex flex-wrap md:flex-col justify-center gap-3 md:gap-2">
+          <div>
+            <ul className="flex flex-col justify-center gap-3">
               {leadSources.map((item, index) => (
                 <li
                   key={index}
@@ -72,7 +72,7 @@ const LeadSources = ({ type = "bar" }) => (
         </div>
       </div>
     )}
- 
+
     {/* Summary + Progress Bar */}
     {type === "bar" && (
       <>
@@ -96,7 +96,7 @@ const LeadSources = ({ type = "bar" }) => (
                 </div>
               ))}
             </div>
- 
+
             {/* Image */}
             {/* Pie Chart Only */}
             {/* <div className="w-32 h-32 mx-auto md:mx-0">
@@ -143,7 +143,7 @@ const LeadSources = ({ type = "bar" }) => (
             </div>
           </div>
         </div>
- 
+
         <div className="space-y-6 mt-10">
           {leadSources.map((src) => (
             <div key={src.name}>
@@ -167,9 +167,5 @@ const LeadSources = ({ type = "bar" }) => (
     )}
   </div>
 );
- 
+
 export default LeadSources;
- 
- 
- 
- 

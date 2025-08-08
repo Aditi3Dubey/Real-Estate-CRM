@@ -14,9 +14,12 @@ const RecentActivity = () => {
 
   return (
     <div className="bg-white rounded-2xl shadow p-4">
-      <div className=" p-2 rounded-md flex justify-between items-center mb-4 bg-pink-100">
+      <div
+        className=" p-2 rounded-md flex justify-between items-center mb-4"
+        style={{ backgroundColor: "#FFF4F0" }}
+      >
         <h2 className="text-lg font-semibold">Recent Activity</h2>
-        <button>View all</button>
+        <button>View All</button>
       </div>
 
       <ul className="space-y-7">

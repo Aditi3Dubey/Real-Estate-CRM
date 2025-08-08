@@ -64,7 +64,7 @@ const InventoryTab = () => {
             change="+18.5%"
             color="blue"
             icon={WalletCards}
-            iconColor="white"
+            iconColor="green"
             textColor="green"
             period="vs last Month"
           />
@@ -74,7 +74,7 @@ const InventoryTab = () => {
             title="Avg. Time on Market"
             value="34 Days"
             change="+12.2%"
-            color="blue"
+            color="green"
             icon={TrendingUp}
             iconColor="green"
             textColor="green"
@@ -86,7 +86,7 @@ const InventoryTab = () => {
             title="Inventory Value"
             value="₹50,0000"
             change="+12.2%"
-            color="blue"
+            color="pink"
             icon={TrendingUp}
             iconColor="green"
             textColor="green"

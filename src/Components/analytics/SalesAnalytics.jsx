@@ -50,7 +50,7 @@ const SalesAnalytics = () => {
   return (
     <div className="space-y-6 mt-6">
       {/* Summary Cards */}
-      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible mb-6">
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="Total Leads"
@@ -59,7 +59,7 @@ const SalesAnalytics = () => {
             iconColor="green"
             change="12.5%"
             period="vs last month"
-            color="blue"
+            color="green"
             textColor="green"
           />
         </div>

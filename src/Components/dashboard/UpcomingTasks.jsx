@@ -1,75 +1,3 @@
-// import React from "react";
-// import { CheckSquare, Clock, Square, SquareCheckBigIcon } from "lucide-react";
-
-// const UpcomingTasks = () => {
-//   const tasks = [
-//     {
-//       title: "Call back Michael Johnson",
-//       time: "Today, 2:30 PM",
-//       priority: "High",
-//     },
-//     {
-//       title: "Schedule site visit for Sarah Williams",
-//       time: "Tomorrow, 10:00 AM",
-//       priority: "High",
-//     },
-//     {
-//       title: "Prepare contract for Heights Villa",
-//       time: "Thursday, 1:00 PM",
-//       priority: "Low",
-//     },
-//     {
-//       title: "Follow up with leads Open House",
-//       time: "Friday, 11:00 AM",
-//       priority: "Low",
-//     },
-//   ];
-
-//   return (
-//     <div className="bg-white rounded-2xl shadow p-4 max-w-md mx-auto">
-//       <div className="flex justify-between items-center mb-4 bg-pink-100 p-2 rounded-md">
-//         <h2 className="text-lg font-semibold">Upcoming Tasks</h2>
-//         <button>View All</button>
-//       </div>
-//       <ul className="space-y-3">
-//         {tasks.map((task, idx) => (
-//           <li
-//             key={idx}
-//             className="flex items-center p-2 bg-white rounded-lg shadow"
-//           >
-//             <div className="flex justify-between items-start gap-12">
-//               <div className="flex-1">
-//                 <div className="flex items-center">
-//                   <Square className="w-5 h-5 text-gray-500 mr-2" />
-//                   <spam className="text-sm font-medium text-gray-900">
-//                     {task.title}
-//                   </spam>
-//                 </div>
-//                 <div className="flex items-center text-xs text-gray-500 mt-2">
-//                   <Clock className="w-4 h-4 mr-1" />
-//                   {task.time}
-//                 </div>
-//               </div>
-
-//               <span
-//                 className={`text-xs px-2 py-1 rounded-full ${
-//                   task.priority === "High"
-//                     ? "bg-red-100 text-red-800"
-//                     : "bg-yellow-100 text-yellow-800"
-//                 }`}
-//               >
-//                 Priority: {task.priority}
-//               </span>
-//             </div>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default UpcomingTasks;
-
 import React from "react";
 import { CheckSquare, Clock, Square } from "lucide-react";
 
@@ -99,7 +27,10 @@ const UpcomingTasks = () => {
 
   return (
     <div className="bg-white rounded-2xl shadow p-4 max-w-md mx-auto w-full">
-      <div className="flex flex-wrap justify-between items-center mb-4 bg-pink-100 p-2 rounded-md gap-2">
+      <div
+        className="flex flex-wrap justify-between items-center mb-4  p-2 rounded-md gap-2"
+        style={{ backgroundColor: "#FFF4F0" }}
+      >
         <h2 className="text-lg font-semibold">Upcoming Tasks</h2>
         <button className="text-sm">View All</button>
       </div>

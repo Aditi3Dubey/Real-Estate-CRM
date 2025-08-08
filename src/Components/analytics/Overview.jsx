@@ -57,6 +57,7 @@ const Overview = () => {
             color="green"
             textColor="green"
             period="from last week"
+            iconColor="green"
           />
         </div>
         <div className="min-w-[250px] sm:min-w-0">
@@ -68,6 +69,7 @@ const Overview = () => {
             color="blue"
             textColor="green"
             period="from last week"
+            iconColor="green"
           />
         </div>
 
@@ -80,6 +82,7 @@ const Overview = () => {
             color="purple"
             textColor="red"
             period="from last month"
+            iconColor="red"
           />
         </div>
         <div className="min-w-[250px] sm:min-w-0">
@@ -91,6 +94,7 @@ const Overview = () => {
             color="pink"
             textColor="green"
             period="from last week"
+            iconColor="green"
           />
         </div>
       </div>
@@ -130,13 +134,13 @@ const Overview = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Lead Sources */}
         <div className="flex flex-col gap-2">
-          <h3 className="text-md font-bold text-black">Lead Sources</h3>
+          <h3 className="text-lg font-bold text-black">Lead Sources</h3>
           <LeadSources type="pie" />
         </div>
 
         {/* Sales by Property Type */}
         <div className="flex flex-col gap-2">
-          <h3 className="text-md font-bold text-black">
+          <h3 className="text-lg font-bold text-black">
             Sales by Property Type
           </h3>
           <SalesPie />

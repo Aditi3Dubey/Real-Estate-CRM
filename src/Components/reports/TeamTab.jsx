@@ -63,6 +63,7 @@ const TeamTab = () => {
             value="18"
             icon={WalletCards}
             color="blue"
+            iconColor="green"
           />
         </div>
         <div className="min-w-[250px] sm:min-w-0">
@@ -70,7 +71,7 @@ const TeamTab = () => {
             title="Ave. Revenue per Agent"
             value="₹500,000"
             icon={TrendingUp}
-            color="blue"
+            color="green"
             iconColor="green"
           />
         </div>

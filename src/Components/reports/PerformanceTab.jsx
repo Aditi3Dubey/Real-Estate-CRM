@@ -80,79 +80,48 @@ const funnelConversion = [
 
 const PerformanceTab = () => {
   return (
-    <div className="space-y-10 px-4 md:px-6">
+    <div className="space-y-10">
       {/* Summary Cards */}
-      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
-        <div className="min-w-[250px] sm:min-w-0">
-          <SummaryCard
-            title="Total Revenue"
-            value="₹100,000"
-            change="+15%"
-            color="blue"
-            icon={WalletCards}
-            iconColor="white"
-            textColor="green"
-            period="vs last Period"
-          />
-        </div>
-        <div className="min-w-[250px] sm:min-w-0">
-          <SummaryCard
-            title="Listings"
-            value="235"
-            change="-5%"
-            icon={TrendingUp}
-            color="blue"
-            iconColor="green"
-            textColor="green"
-            period="vs last Period"
-          />
-        </div>
-        <div className="min-w-[250px] sm:min-w-0">
-          <SummaryCard
-            title="Avg. Sale Price"
-            value="₹50,000"
-            color="purple"
-            change="+10%"
-            icon={TrendingUp}
-            iconColor="green"
-            textColor="green"
-            period="vs last Period"
-          />
-        </div>
-        <div className="min-w-[250px] sm:min-w-0">
-          <SummaryCard
-            title="Days on Market"
-            value="₹50,000"
-            color="pink"
-            change="+10%"
-            icon={TrendingDown}
-            iconColor="red"
-            textColor="red"
-            period="vs last Period"
-          />
-        </div>
-        <div className="min-w-[250px] sm:min-w-0">
-          <SummaryCard
-            title="Conversion Rate"
-            value="₹50,000"
-            period="vs last Period"
-            color="pink"
-            change="+10%"
-            icon={TrendingUp}
-            iconColor="green"
-            textColor="green"
-          />
-        </div>
-        <div className="min-w-[250px] sm:min-w-0">
-          <SummaryCard
-            title="Customer Satisfaction"
-            value="₹50,000"
-            color="red"
-            change="+10%"
-            icon={TrendingUp}
-            iconColor="green"
-            textColor="green"
-          />
+      <div style={{ maxWidth: "100vw" }}>
+        <div
+          className="flex gap-4 overflow-x-auto mb-6 scrollbar-hide"
+          style={{
+            paddingRight: "calc((100% / 3.5) / 2)",
+            scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
+          }}
+        >
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0"
+              style={{
+                width: "calc(100% / 3.5)",
+                minWidth: "250px",
+                scrollSnapAlign: "start",
+              }}
+            >
+              <SummaryCard
+                title={
+                  [
+                    "Total Revenue",
+                    "Listings",
+                    "Avg. Sale Price",
+                    "Days on Market",
+                    "Conversion Rate",
+                    "Client Happiness",
+                  ][i]
+                }
+                value="₹50,000"
+                change={i % 2 === 0 ? "+10%" : "-5%"}
+                color={["blue", "green", "purple", "pink", "blue", "green"][i]}
+                icon={TrendingUp}
+                iconColor="green"
+                textColor="green"
+                period="vs last Period"
+              />
+            </div>
+          ))}
         </div>
       </div>
 

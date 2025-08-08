@@ -1,6 +1,6 @@
 import React from "react";
 import SummaryCard from "../SummaryCard";
-import { File, Clock, AlertCircle } from "lucide-react";
+import { File, Clock, AlertCircle, ChevronDown } from "lucide-react";
 import TableFooter from "../TableFooter";
 import SearchBar from "../SearchBar";
 
@@ -85,7 +85,7 @@ const getStatusStyle = (status) => {
 
 const TransactionsTab = () => {
   return (
-    <div className="px-4 py-6 max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
+    <div className="  max-w-screen-xl mx-auto bg-gray-50 min-h-screen">
       {/* Top Bar */}
       {/* Top Controls */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
@@ -96,15 +96,22 @@ const TransactionsTab = () => {
 
         {/* Right-side filters - stack on small, row on md+ */}
         <div className="flex flex-wrap gap-2 justify-end w-full sm:w-auto">
-          <select className="px-4 py-2 border border-gray-300 rounded-md text-sm text-gray-700 bg-white w-full sm:w-auto">
-            <option>Filter by Date Range</option>
-          </select>
-          <select className="px-4 py-2 border border-gray-300 rounded-md text-sm text-gray-700 bg-white w-full sm:w-auto">
-            <option>Amount</option>
-            <option>50,000</option>
-            <option>20,000</option>
-            <option>30,000</option>
-          </select>
+          <div className="relative text-sm text-gray-700 w-full sm:w-auto">
+            <select className="block w-full min-w-[160px] px-4 py-2 pr-10 border border-gray-300 rounded-md bg-white appearance-none">
+              <option>Filter by Date Range</option>
+            </select>
+            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+          </div>
+
+          <div className="relative text-sm text-gray-700 w-full sm:w-auto">
+            <select className="block w-full min-w-[140px] px-4 py-2 pr-10 border border-gray-300 rounded-md bg-white appearance-none">
+              <option>Amount</option>
+              <option>50,000</option>
+              <option>20,000</option>
+              <option>30,000</option>
+            </select>
+            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+          </div>
         </div>
       </div>
 
@@ -116,6 +123,7 @@ const TransactionsTab = () => {
             value="₹50,000"
             icon={File}
             color="blue"
+            iconColor="green"
           />
         </div>
         <div className="min-w-[250px] sm:min-w-0">
@@ -123,7 +131,8 @@ const TransactionsTab = () => {
             title="Pending"
             value="₹20,000"
             icon={Clock}
-            color="blue"
+            color="green"
+            iconColor="green"
           />
         </div>
         <div className="min-w-[250px] sm:min-w-0">
@@ -132,6 +141,7 @@ const TransactionsTab = () => {
             value="₹1,000"
             icon={AlertCircle}
             color="purple"
+            iconColor="red"
           />
         </div>
       </div>

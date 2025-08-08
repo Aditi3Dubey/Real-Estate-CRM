@@ -20,7 +20,7 @@ export default function SiteVisits() {
   );
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-4">
+    <div className="flex flex-col min-h-screen bg-gray-50 p-4">
       {/* Header */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6">
         <div className="flex items-center gap-2">
@@ -44,7 +44,7 @@ export default function SiteVisits() {
       </div>
 
       {/* Summary Cards */}
-      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible mb-6">
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="Total Visits"
@@ -61,7 +61,7 @@ export default function SiteVisits() {
             title="Scheduled"
             value="94"
             change="+15.3%"
-            color="purple"
+            color="blue"
             textColor="green"
             iconColor="green"
             period="from last month"
@@ -72,7 +72,7 @@ export default function SiteVisits() {
             title="Confirmed"
             value="24.7%"
             change="-2.1%"
-            color="red"
+            color="purple"
             textColor="red"
             period="from last month"
             iconColor="red"
@@ -83,7 +83,7 @@ export default function SiteVisits() {
             title="Cancelled"
             value="32"
             change="+8.2%"
-            color="blue"
+            color="pink"
             textColor="green"
             iconColor="green"
             period="from last month"

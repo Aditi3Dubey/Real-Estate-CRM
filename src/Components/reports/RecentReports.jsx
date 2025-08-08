@@ -3,10 +3,9 @@ import { Printer, Mail, Download, ArrowLeft } from "lucide-react";
 
 const RecentReports = ({ reports = [] }) => {
   return (
-    <div className="bg-white rounded-xl p-4 shadow-sm">
+    <div className="bg-white rounded-xl p-4 shadow-sm mt-4">
       <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
         <div className="flex items-center gap-2">
-          <ArrowLeft className="h-5" />
           <h2 className="text-lg font-semibold">Recent Reports</h2>
         </div>
         <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm px-4 py-1.5 rounded">
@@ -33,7 +32,7 @@ const RecentReports = ({ reports = [] }) => {
                 <td>{report.type}</td>
                 <td>{report.date}</td>
                 <td>{report.size}</td>
-                <td className="flex gap-2 py-2">
+                <td className="flex gap-4 py-2">
                   <Printer className="h-4 w-4 cursor-pointer text-gray-600" />
                   <Mail className="h-4 w-4 cursor-pointer text-gray-600" />
                   <Download className="h-4 w-4 cursor-pointer text-gray-600" />

@@ -33,9 +33,9 @@ const dailyActivityData = Array.from({ length: 30 }, (_, i) => ({
 
 const LeadAnalytics = () => {
   return (
-    <div className="w-full px-2 sm:px-4">
+    <div>
       {/* Summary Cards */}
-      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible px-2 mb-6">
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible  mb-6">
         <div className="min-w-[250px] sm:min-w-0">
           <SummaryCard
             title="Total Leads"
