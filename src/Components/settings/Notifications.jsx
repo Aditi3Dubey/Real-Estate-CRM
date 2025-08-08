@@ -1,27 +1,27 @@
 import React, { useState } from "react";
- 
+
 const initialSettings = {
   email: true,
   lead: true,
   task: false,
   property: true,
 };
- 
+
 export default function Notifications() {
   const [settings, setSettings] = useState(initialSettings);
- 
+
   return (
-    <div className="w-full min-h-screen bg-white font-sans p-4 relative">
+    <div className="w-full min-h-screen bg-white font-sans  pt-1">
       {/* Header */}
       <header className="mb-6">
-        <h2 className="text-xl font-semibold">Notification Preferences</h2>
-        <p className="text-sm text-gray-500">
+        <h2 className="text-2xl font-semibold">Notification Preferences</h2>
+        <p className="text-base text-gray-500">
           Manage how you receive notifications.
         </p>
       </header>
- 
+
       {/* Settings */}
-      <section className="space-y-5">
+      <section className="space-y-6">
         <NotificationRow
           title="Email Notifications"
           desc="Receive email notifications for important updates"
@@ -47,24 +47,24 @@ export default function Notifications() {
           onChange={() => setSettings((s) => ({ ...s, property: !s.property }))}
         />
       </section>
- 
+
       {/* Save Button */}
       <div className="fixed bottom-4 right-12">
-        <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-2 rounded shadow">
+        <button className="bg-orange-500 hover:bg-orange-600 text-white text-base font-medium px-6 py-2.5 rounded shadow">
           Save
         </button>
       </div>
     </div>
   );
 }
- 
-// Toggle Component
+
+// Toggle Row Component
 function NotificationRow({ title, desc, checked, onChange }) {
   return (
     <div className="flex items-center justify-between border-b pb-4">
       <div>
-        <h3 className="text-sm font-medium">{title}</h3>
-        <p className="text-xs text-gray-500">{desc}</p>
+        <h3 className="text-base font-semibold">{title}</h3>
+        <p className="text-sm text-gray-500">{desc}</p>
       </div>
       <button
         type="button"
@@ -82,5 +82,3 @@ function NotificationRow({ title, desc, checked, onChange }) {
     </div>
   );
 }
- 
- 

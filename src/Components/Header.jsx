@@ -10,9 +10,29 @@ const Header = ({ onLogout }) => {
   const dropdownRef = useRef(null);
   const [userName, setUserName] = useState("User");
 
-  useEffect(() => {
+  // Function to read user from localStorage
+  const loadUser = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser?.name) setUserName(storedUser.name);
+    if (storedUser?.name) {
+      setUserName(storedUser.name);
+    } else {
+      setUserName("User");
+    }
+  };
+
+  useEffect(() => {
+    loadUser(); // initial load
+
+    // Listen for changes from other tabs
+    window.addEventListener("storage", loadUser);
+
+    // Listen for custom event from same tab
+    window.addEventListener("userUpdated", loadUser);
+
+    return () => {
+      window.removeEventListener("storage", loadUser);
+      window.removeEventListener("userUpdated", loadUser);
+    };
   }, []);
 
   useEffect(() => {
@@ -28,6 +48,7 @@ const Header = ({ onLogout }) => {
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("user");
+    window.dispatchEvent(new Event("userUpdated")); // tell all listeners
     if (onLogout) onLogout();
     navigate("/auth");
   };

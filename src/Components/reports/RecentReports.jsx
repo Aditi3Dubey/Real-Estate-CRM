@@ -5,10 +5,8 @@ const RecentReports = ({ reports = [] }) => {
   return (
     <div className="bg-white rounded-xl p-4 shadow-sm">
       <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
-        <div className="flex items-center gap-2">
-          <ArrowLeft className="h-5" />
+        
           <h2 className="text-lg font-semibold">Recent Reports</h2>
-        </div>
         <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm px-4 py-1.5 rounded">
           View All Reports
         </button>
