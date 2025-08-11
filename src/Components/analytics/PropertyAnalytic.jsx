@@ -205,38 +205,34 @@ const PropertyAnalytic = () => {
         </p>
         <div className="bg-white p-4 rounded-xl shadow flex-1 h-[350px]">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={data}>
+            <LineChart
+              data={data}
+              margin={{ top: 20, right: 20, left: 0, bottom: 20 }}
+            >
               <XAxis dataKey="day" tickLine={false} />
               <YAxis tickLine={false} domain={[0, 60]} />
               <Tooltip />
+              <Legend verticalAlign="bottom" height={36} iconType="circle" />
               <Line
                 type="monotone"
                 dataKey="online"
                 stroke="#22c55e"
-                strokeWidth={2.5}
-                dot={{ r: 4 }}
+                strokeWidth={2}
+                dot={{ r: 3 }}
+                activeDot={{ r: 5 }}
                 name="Online Views"
               />
               <Line
                 type="monotone"
                 dataKey="site"
                 stroke="#06b6d4"
-                strokeWidth={2.5}
-                dot={{ r: 4 }}
+                strokeWidth={2}
+                dot={{ r: 3 }}
+                activeDot={{ r: 5 }}
                 name="Site Visits"
               />
             </LineChart>
           </ResponsiveContainer>
-        </div>
-        <div className="flex items-center gap-6 justify-center mt-3">
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-green-500" />
-            <span className="text-sm text-gray-600">Online Views</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-cyan-500" />
-            <span className="text-sm text-gray-600">Site Visits</span>
-          </div>
         </div>
       </div>
     </div>

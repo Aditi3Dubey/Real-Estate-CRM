@@ -21,7 +21,7 @@ const Setting = () => {
   ];
 
   return (
-    <div className="p-4  bg-white min-h-screen">
+    <div className="p-4  bg-gray-50 min-h-screen">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <div className="flex items-center gap-3">
           <ArrowLeft className="w-5 h-5 text-gray-500 cursor-pointer" />
@@ -30,7 +30,7 @@ const Setting = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex flex-wrap gap-4 sm:gap-6 border-b text-sm sm:text-base font-medium text-black overflow-x-auto scrollbar-hide mt-12">
+      <div className="flex flex-wrap gap-4 sm:gap-6 border-b text-sm sm:text-base font-medium text-black overflow-x-auto scrollbar-hide mt-6">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -38,7 +38,7 @@ const Setting = () => {
             className={`pb-2 whitespace-nowrap transition ${
               activeTab === tab
                 ? "border-b-2 border-orange-500 text-orange-500"
-                : "hover:text-black"
+                : "text-gray-500"
             }`}
           >
             {tab}

@@ -22,7 +22,7 @@ const LeadSources = ({ type = "bar" }) => (
     {/* Pie Chart Only */}
     {type === "pie" && (
       <div className="p-4 rounded-lg flex-1">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-14">
           {/* Chart */}
           <div className="w-[250px] h-[250px]">
             <ResponsiveContainer width="100%" height="100%">

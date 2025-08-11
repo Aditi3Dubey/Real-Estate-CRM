@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function TeamSettings() {
   const [company, setCompany] = useState("Acme Real Estate");
@@ -7,8 +7,32 @@ export default function TeamSettings() {
   const [workingHours, setWorkingHours] = useState("9 AM - 6 PM");
   const [allowSignup, setAllowSignup] = useState(false);
 
+  // Initial values for comparison
+  const initialValues = {
+    company: "Acme Real Estate",
+    teamSize: "Small",
+    workingHours: "9 AM - 6 PM",
+    allowSignup: false,
+  };
+
+  const [isChanged, setIsChanged] = useState(false);
+
+  useEffect(() => {
+    // Check if any field is different from initial values
+    if (
+      company !== initialValues.company ||
+      teamSize !== initialValues.teamSize ||
+      workingHours !== initialValues.workingHours ||
+      allowSignup !== initialValues.allowSignup
+    ) {
+      setIsChanged(true);
+    } else {
+      setIsChanged(false);
+    }
+  }, [company, teamSize, workingHours, allowSignup]);
+
   return (
-    <div className="w-full min-h-screen bg-white font-sans relative">
+    <div className="w-full min-h-screen bg-white font-sans relative p-2">
       {/* Header */}
       <div className="mb-6 ">
         <h2 className="text-xl font-bold">Team Settings</h2>
@@ -72,7 +96,14 @@ export default function TeamSettings() {
 
       {/* Action Button */}
       <div className="fixed bottom-4 right-8 flex gap-2">
-        <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-2 rounded shadow">
+        <button
+          className={`${
+            isChanged
+              ? "bg-orange-500 hover:bg-orange-600"
+              : "bg-[#ADADAD] cursor-not-allowed"
+          } text-white px-6 py-2 text-sm font-medium rounded shadow`}
+          disabled={!isChanged}
+        >
           Save Team Settings
         </button>
       </div>
@@ -81,7 +112,6 @@ export default function TeamSettings() {
 }
 
 // Toggle Switch Component
-
 function ToggleSwitch({ checked, setChecked }) {
   return (
     <button

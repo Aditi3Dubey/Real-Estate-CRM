@@ -12,8 +12,23 @@ export default function Security() {
   const [showNew, setShowNew] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
+  // Initial state snapshot for detecting changes
+  const initialState = {
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+    twoFA: false,
+  };
+
+  // Check if any changes were made
+  const isChanged =
+    currentPassword !== initialState.currentPassword ||
+    newPassword !== initialState.newPassword ||
+    confirmPassword !== initialState.confirmPassword ||
+    twoFA !== initialState.twoFA;
+
   return (
-    <div className="w-full min-h-screen bg-white font-sans pt-1 relative">
+    <div className="w-full min-h-screen bg-white font-sans p-2 relative">
       {/* Header */}
       <header className="mb-6">
         <h2 className="text-xl font-bold">Security Settings</h2>
@@ -109,7 +124,14 @@ export default function Security() {
 
       {/* Save Button */}
       <div className="fixed bottom-4 right-8">
-        <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-2 rounded shadow">
+        <button
+          className={`${
+            isChanged
+              ? "bg-orange-500 hover:bg-orange-600"
+              : "bg-[#ADADAD] cursor-not-allowed"
+          } text-white px-6 py-2 text-sm font-medium rounded shadow`}
+          disabled={!isChanged}
+        >
           Update Security Settings
         </button>
       </div>

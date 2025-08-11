@@ -10,8 +10,12 @@ const initialSettings = {
 export default function Notifications() {
   const [settings, setSettings] = useState(initialSettings);
 
+  // Compare current settings to initial settings
+  const isChanged =
+    JSON.stringify(settings) !== JSON.stringify(initialSettings);
+
   return (
-    <div className="w-full min-h-screen bg-white font-sans relative">
+    <div className="w-full min-h-screen bg-white font-sans relative p-2">
       {/* Header */}
       <header className="mb-6">
         <h2 className="text-xl font-semibold">Notification Preferences</h2>
@@ -50,7 +54,14 @@ export default function Notifications() {
 
       {/* Save Button */}
       <div className="fixed bottom-4 right-8">
-        <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-2 rounded shadow">
+        <button
+          className={`${
+            isChanged
+              ? "bg-orange-500 hover:bg-orange-600"
+              : "bg-[#ADADAD] cursor-not-allowed"
+          } text-white text-sm font-medium px-6 py-2 rounded shadow`}
+          disabled={!isChanged}
+        >
           Save
         </button>
       </div>

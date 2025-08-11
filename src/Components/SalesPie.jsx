@@ -14,7 +14,7 @@ const SalesPie = () => {
   return (
     <div className="bg-white p-4 sm:p-6 rounded-xl shadow min-h-[350px] w-full">
       <div className="p-4 rounded-lg flex-1">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-14">
           {/* Pie Chart */}
           <div className="w-[250px] h-[250px] md:w-[280px] md:h-[280px]">
             <ResponsiveContainer width="100%" height="100%">

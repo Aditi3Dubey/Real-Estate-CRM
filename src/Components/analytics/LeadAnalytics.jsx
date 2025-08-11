@@ -161,12 +161,15 @@ const LeadAnalytics = () => {
         </p>
         <div className="w-full h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={dailyActivityData}>
+            <LineChart
+              data={dailyActivityData}
+              margin={{ top: 20, right: 20, left: 0, bottom: 20 }}
+            >
               <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
               <XAxis dataKey="day" />
               <YAxis />
               <Tooltip />
-              <Legend />
+              <Legend verticalAlign="bottom" height={36} iconType="circle" />
               <Line
                 type="monotone"
                 dataKey="Visits"

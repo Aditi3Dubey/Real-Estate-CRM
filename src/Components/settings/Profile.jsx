@@ -13,7 +13,7 @@ export default function Profile() {
   const isChanged = JSON.stringify(profile) !== JSON.stringify(initialProfile);
 
   return (
-    <div className="w-full bg-white flex flex-col items-start">
+    <div className="w-full bg-white flex flex-col items-start p-2">
       <div className="w-full border rounded-lg p-4 bg-white shadow-sm relative">
         <h2 className="text-lg font-semibold">Profile</h2>
         <p className="text-sm text-gray-500 mb-4">
