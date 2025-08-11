@@ -84,7 +84,7 @@ const PerformanceTab = () => {
       {/* Summary Cards */}
       <div style={{ maxWidth: "100vw" }}>
         <div
-          className="flex gap-4 overflow-x-auto mb-6 scrollbar-hide"
+          className="flex gap-4 overflow-x-auto mb-6 scrollbar-hide scrollbar-custom"
           style={{
             paddingRight: "calc((100% / 3.5) / 2)",
             scrollSnapType: "x mandatory",
@@ -132,8 +132,20 @@ const PerformanceTab = () => {
             Sales Funnel Performance
           </h2>
           <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={funnelData} barSize={50}>
-              <XAxis dataKey="stage" axisLine={false} tickLine={false} />
+            <BarChart
+              data={funnelData}
+              barSize={50}
+              margin={{ bottom: 20 }} // extra space for labels
+            >
+              <XAxis
+                dataKey="stage"
+                axisLine={true}
+                tickLine={false}
+                interval={0}
+                tick={{ fontSize: 12 }}
+                angle={-20}
+                textAnchor="end"
+              />
               <YAxis />
               <RechartsTooltip
                 content={({ active, payload }) =>
